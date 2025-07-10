@@ -1,6 +1,6 @@
 from django.db import models
 
-from utils.resize_image import resize_image
+from utils import resize_image
 
 
 class Produto(models.Model):
