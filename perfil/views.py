@@ -1,19 +1,24 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views import View
 
 
 class Criar(View):
-    pass
+    def get(self, *arg, **kwargs):
+        return HttpResponse("Página de teste para criar perfil")
 
 
 class Atualizar(View):
-    pass
+    def get(self, *arg, **kwargs):
+        return HttpResponse("Página de teste para atualizar perfil")
 
 
 class Login(View):
-    pass
+    def get(self, *arg, **kwargs):
+        return HttpResponse("Página de teste para login")
 
 
 class Logout(View):
-    pass
+    def get(self, *arg, **kwargs):
+        return HttpResponse("Página de teste para logout")
