@@ -1,9 +1,9 @@
 from django.template import Library
-from utils import formata_preco
+import utils
 
 register = Library()
 
 
 @register.filter
-def formata_preco_filter(valor):
-    return formata_preco(valor)
+def formata_preco(valor):
+    return utils.formata_preco(valor)
