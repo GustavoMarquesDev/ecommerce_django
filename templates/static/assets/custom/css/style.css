@@ -21,11 +21,26 @@ main {
 
 .product-price {
   font-size: 1.5rem;
+  color: #222 !important;
+  font-weight: 500;
 }
 
 .product-old-price {
   text-decoration: line-through;
   font-size: 1rem;
+  color: #6c757d;
+}
+
+/* Garantir que o preço principal tenha sempre a mesma estilização */
+.lead.product-price {
+  font-size: 1.5rem;
+  color: #222 !important;
+}
+
+/* Estilização para preços em cards */
+.product-price-block .product-price {
+  font-size: 1.5rem;
+  color: #222 !important;
 }
 
 .border-top-light-custom {

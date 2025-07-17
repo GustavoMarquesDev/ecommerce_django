@@ -20,11 +20,11 @@
                         <h5 class="card-title">{{ produto.nome }}</h5>
                         <p class="card-text">{{ produto.descricao_curta }}</p>
                         <div class="container product-price-block text-center">
-                            {% if produto.preco_marketing_promocional %}
+                            {% if produto.preco_marketing_promocional > 0 %}
                                 <span class="product-price">
                                     {{ produto.preco_marketing_promocional | formata_preco }}
                                 </span>
-                                <span class="product-old-price text-muted">
+                                <span class="product-old-price">
                                     {{ produto.preco_marketing | formata_preco }}
                                 </span>
                             {% else %}
