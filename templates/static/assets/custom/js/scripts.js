@@ -41,3 +41,35 @@
   // Atualiza ao trocar variação
   select_variacao.addEventListener("change", atualizarPrecos);
 })();
+
+// Script para atualizar quantidade no carrinho
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    // Interceptar cliques nos botões + e -
+    document
+      .querySelectorAll('a[href*="atualizarquantidade"]')
+      .forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const url = this.getAttribute("href");
+          const variacaoId = this.getAttribute("href").match(/vid=(\d+)/)[1];
+          const acao = this.getAttribute("href").match(/acao=(\w+)/)[1];
+
+          // Fazer requisição AJAX
+          fetch(url)
+            .then((response) => {
+              if (response.ok) {
+                // Recarregar a página para mostrar as mudanças
+                window.location.reload();
+              } else {
+                console.error("Erro ao atualizar quantidade");
+              }
+            })
+            .catch((error) => {
+              console.error("Erro:", error);
+            });
+        });
+      });
+  });
+})();

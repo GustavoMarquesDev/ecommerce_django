@@ -39,20 +39,29 @@
                                 <td> - </td>
                             {% endif %}
                             <td>
-                                {{ linha.quantidade }}
-                                {% comment %} {{ linha.quantidade }}x
-                                {% if linha.preco_unitario_promocional %}
-                                {{ linha.preco_unitario_promocional | formata_preco }}
-                                {% else %}
-                                {{ linha.preco_unitario | formata_preco }}
-                                {% endif %} {% endcomment %}
-
+                                <div class="d-flex align-items-center">
+                                    <a href="{% url 'produto:atualizarquantidade' %}?vid={{ linha.variacao_id }}&acao=diminuir" 
+                                       class="btn btn-sm btn-primary mr-2">
+                                        <i class="fas fa-minus"></i>
+                                    </a>
+                                    <span class="quantidade-item" data-variacao-id="{{ linha.variacao_id }}">
+                                        {{ linha.quantidade }}
+                                    </span>
+                                    <a href="{% url 'produto:atualizarquantidade' %}?vid={{ linha.variacao_id }}&acao=aumentar" 
+                                       class="btn btn-sm btn-primary ml-2">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </div>
                             </td>
 
                             {% if linha.preco_quantitativo_promocional %}
-                                <td>R$ {{ linha.preco_quantitativo_promocional | formata_preco }}</td>
+                                <td class="preco-total-item" data-variacao-id="{{ linha.variacao_id }}">
+                                    R$ {{ linha.preco_quantitativo_promocional | formata_preco }}
+                                </td>
                             {% else %}
-                                <td>R$ {{ linha.preco_quantitativo | formata_preco }}</td>
+                                <td class="preco-total-item" data-variacao-id="{{ linha.variacao_id }}">
+                                    R$ {{ linha.preco_quantitativo | formata_preco }}
+                                </td>
                             {% endif %} 
 
                         </tr>
@@ -96,5 +105,7 @@
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script defer src="assets/font-awesome/js/all.js"></script>
 <script src="assets/custom/js/scripts.js"></script>
+
+
 
 {% endblock conteudo %}

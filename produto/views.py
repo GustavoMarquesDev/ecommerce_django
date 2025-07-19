@@ -154,6 +154,67 @@ class Carrinho(View):
         return render(self.request, 'produto/carrinho.html', contexto)
 
 
+class AtualizarQuantidade(View):
+    def get(self, *arg, **kwargs):
+        http_referer = self.request.META.get(
+            'HTTP_REFERER', reverse('produto:carrinho')
+        )
+
+        variacao_id = self.request.GET.get('vid')
+        acao = self.request.GET.get('acao')  # 'aumentar' ou 'diminuir'
+
+        if not variacao_id or not acao:
+            return redirect(http_referer)
+
+        if not self.request.session.get('carrinho'):
+            return redirect(http_referer)
+
+        if variacao_id not in self.request.session['carrinho']:
+            return redirect(http_referer)
+
+        carrinho = self.request.session['carrinho']
+        item = carrinho[variacao_id]
+        quantidade_atual = item['quantidade']
+
+        if acao == 'aumentar':
+            nova_quantidade = quantidade_atual + 1
+            # Verificar estoque
+            variacao = get_object_or_404(Variacao, id=variacao_id)
+            if nova_quantidade > variacao.estoque:
+                messages.error(
+                    self.request,
+                    f'Estoque insuficiente. Máximo disponível: {variacao.estoque}'
+                )
+                return redirect(http_referer)
+        elif acao == 'diminuir':
+            nova_quantidade = quantidade_atual - 1
+            if nova_quantidade <= 0:
+                # Remove o item do carrinho se quantidade chegar a 0
+                del carrinho[variacao_id]
+                messages.success(
+                    self.request,
+                    f'Produto {item["produto_nome"]} removido do carrinho'
+                )
+                self.request.session.save()
+                return redirect(http_referer)
+        else:
+            return redirect(http_referer)
+
+        # Atualizar quantidade e preços
+        item['quantidade'] = nova_quantidade
+        item['preco_quantitativo'] = item['preco_unitario'] * nova_quantidade
+        item['preco_quantitativo_promocional'] = item['preco_unitario_promocional'] * nova_quantidade
+
+        self.request.session.save()
+
+        messages.success(
+            self.request,
+            f'Quantidade do produto {item["produto_nome"]} atualizada para {nova_quantidade}x'
+        )
+
+        return redirect(http_referer)
+
+
 class Finalizar(View):
     def get(self, *arg, **kwargs):
         return HttpResponse("Página de finalização de compra")

@@ -114,3 +114,17 @@ ul.errorlist li {
 .cart-img {
   max-width: 150px;
 }
+
+/* Estilos para os botões de quantidade */
+.quantidade-item {
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+  display: inline-block;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
