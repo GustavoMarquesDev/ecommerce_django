@@ -28,12 +28,7 @@ class DetalheProduto(DetailView):
 class AdicionarAoCarrinho(View):
     def get(self, *arg, **kwargs):
 
-        # para remover do carrinho, descomente as linhas abaixo
-        # if self.request.session.get('carrinho'):
-        #     del self.request.session['carrinho']
-        #     self.request.session.save()
-
-        # para voltar para a página anterior, ous a home aqui no caso
+        # para voltar para a página anterior, ou a home aqui no caso
         http_referer = self.request.META.get(
             'HTTP_REFERER', reverse('produto:lista')
         )
@@ -138,7 +133,7 @@ class RemoverDoCarrinho(View):
         messages.success(
             self.request,
             f'Produto {carrinho[variacao_id]["produto_nome"]} '
-            f'{carrinho[variacao_id]["variacao_nome"]} removido do carrinho'
+            f'{carrinho[variacao_id]["variacao_nome"]} removido do carrinho.'
         )
 
         del self.request.session['carrinho'][variacao_id]
@@ -207,14 +202,9 @@ class AtualizarQuantidade(View):
 
         self.request.session.save()
 
-        messages.success(
-            self.request,
-            f'Quantidade do produto {item["produto_nome"]} atualizada para {nova_quantidade}x'
-        )
-
         return redirect(http_referer)
 
 
-class Finalizar(View):
+class ResumoDaCompra(View):
     def get(self, *arg, **kwargs):
         return HttpResponse("Página de finalização de compra")

@@ -41,14 +41,14 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <a href="{% url 'produto:atualizarquantidade' %}?vid={{ linha.variacao_id }}&acao=diminuir" 
-                                       class="btn btn-sm btn-primary mr-2">
+                                        class="btn btn-sm btn-primary mr-2">
                                         <i class="fas fa-minus"></i>
                                     </a>
                                     <span class="quantidade-item" data-variacao-id="{{ linha.variacao_id }}">
                                         {{ linha.quantidade }}
                                     </span>
                                     <a href="{% url 'produto:atualizarquantidade' %}?vid={{ linha.variacao_id }}&acao=aumentar" 
-                                       class="btn btn-sm btn-primary ml-2">
+                                        class="btn btn-sm btn-primary ml-2">
                                         <i class="fas fa-plus"></i>
                                     </a>
                                 </div>
@@ -77,7 +77,7 @@
                 <table class="table">
                     <tr>
                         <td class="font-weight-bold">Total</td>
-                        <td>R$100000</td>
+                        <td>{{carrinho | cart_total_price | formata_preco }}</td>
                     </tr>
                 </table>
             </div>
@@ -95,6 +95,9 @@
         <div class="col">
             <h3>Carrinho vazio</h3>
             <p class="lead">O seu carrinho está vazio.</p>
+            <a class="btn btn-lg  btn-primary" href="{% url 'produto:lista' %}">
+                Voltar para a home
+            </a>
         </div>
     </div>
 
