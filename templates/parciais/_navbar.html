@@ -20,13 +20,13 @@
                 <a class="nav-link nav-cart-link d-flex align-items-center position-relative" href="{% url 'produto:carrinho' %}">
                     <i class="fas fa-shopping-cart mr-1"></i>
                     <span class="nav-cart-text mr-1">Carrinho</span>
-                    <span class="badge badge-pill badge-primary nav-cart-count position-absolute" style="top:0; right:-15px; font-size:0.8rem;">{{ request.session.carrinho|cart_total_qtd }}</span>
+                    <span class="badge badge-pill badge-primary nav-cart-count position-absolute custom-cart-badge">{{ request.session.carrinho|cart_total_qtd }}</span>
                 </a>
             </li>
             {% endif %}
         </ul>
-        <form class="form-inline my-2 my-lg-0 ml-lg-4" style="position:relative;">
-            <input class="form-control mr-sm-2 rounded-pill px-4" type="search" placeholder="Buscar produtos..." aria-label="Search" style="min-width:180px;">
+        <form class="form-inline my-2 my-lg-0 ml-lg-4 custom-navbar-form">
+            <input class="form-control mr-sm-2 rounded-pill px-4 custom-navbar-search" type="search" placeholder="Buscar produtos..." aria-label="Search">
             <button class="btn btn-primary rounded-pill px-3" type="submit">
                 <i class="fas fa-search"></i>
             </button>

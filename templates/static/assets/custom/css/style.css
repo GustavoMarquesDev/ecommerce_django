@@ -251,3 +251,48 @@ ul.errorlist li {
   display: block;
   width: 100%;
 }
+
+/* Badge do carrinho na navbar */
+.custom-cart-badge {
+  top: 0;
+  right: -15px;
+  font-size: 0.8rem;
+}
+/* Formulário da navbar com position relative */
+.custom-navbar-form {
+  position: relative;
+}
+/* Input de busca da navbar com largura mínima */
+.custom-navbar-search {
+  min-width: 180px;
+}
+
+/* --- Rodapé Moderno --- */
+.footer-modern {
+  background: #181c23;
+  color: #e9ecef;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+}
+.footer-modern .footer-icon-link {
+  color: #e9ecef;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+.footer-modern .footer-icon-link:hover {
+  color: #ffc107;
+  text-decoration: none;
+}
+.footer-modern .text-secondary {
+  color: #adb5bd !important;
+}
+@media (max-width: 767.98px) {
+  .footer-modern {
+    font-size: 0.95rem;
+    border-radius: 0.7rem 0.7rem 0 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
