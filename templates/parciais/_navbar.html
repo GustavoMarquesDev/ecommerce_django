@@ -12,17 +12,37 @@
         <ul class="navbar-nav ml-auto align-items-lg-center">
             <li class="nav-item {% if request.resolver_match.url_name == 'lista' %}active{% endif %}">
                 <a class="nav-link d-flex align-items-center" href="{%url 'produto:lista'%}">
-                    <i class="fas fa-home mr-1"></i> Home
+                    <i class="fas fa-home mr-1"></i>
+                    Home
                 </a>
-            </li>
+
+            {% if request.user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gerenciar Perfil
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'perfil:criar' %}">Atualizar</a>
+                        <a class="dropdown-item" href="{% url 'perfil:logout' %}">Sair</a>
+                        
+                    </div>
+                </li>
+            </li> 
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'perfil:criar' %}">Entrar</a>
+                </li>
+            {% endif %}
+            
             {% if request.session.carrinho %}
-            <li class="nav-item ml-lg-3">
-                <a class="nav-link nav-cart-link d-flex align-items-center position-relative" href="{% url 'produto:carrinho' %}">
-                    <i class="fas fa-shopping-cart mr-1"></i>
-                    <span class="nav-cart-text mr-1">Carrinho</span>
-                    <span class="badge badge-pill badge-primary nav-cart-count position-absolute custom-cart-badge">{{ request.session.carrinho|cart_total_qtd }}</span>
-                </a>
-            </li>
+                <li class="nav-item ml-lg-3">
+                    <a class="nav-link nav-cart-link d-flex align-items-center position-relative" href="{% url 'produto:carrinho' %}">
+                        <i class="fas fa-shopping-cart mr-1"></i>
+                        <span class="nav-cart-text mr-1">Carrinho</span>
+                        <span class="badge badge-pill badge-primary nav-cart-count position-absolute custom-cart-badge">{{ request.session.carrinho|cart_total_qtd }}</span>
+                    </a>
+                </li>
             {% endif %}
         </ul>
         <form class="form-inline my-2 my-lg-0 ml-lg-4 custom-navbar-form">
