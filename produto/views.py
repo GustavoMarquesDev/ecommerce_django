@@ -207,4 +207,12 @@ class AtualizarQuantidade(View):
 
 class ResumoDaCompra(View):
     def get(self, *arg, **kwargs):
-        return HttpResponse("Página de finalização de compra")
+        if not self.request.user.is_authenticated:
+            return redirect('perfil:criar')
+
+        contexto = {
+            'usuario': self.request.user,
+            'carrinho': self.request.session['carrinho']
+        }
+
+        return render(self.request, 'produto/resumodacompra.html', contexto)
