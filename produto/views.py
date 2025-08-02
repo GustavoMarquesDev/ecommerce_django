@@ -1,5 +1,4 @@
 from django.shortcuts import redirect, get_object_or_404, render
-from django.http import HttpResponse
 from django.urls import reverse
 from django.views.generic import ListView
 from django.views.generic import DetailView
@@ -7,6 +6,7 @@ from django.views import View
 from django.contrib import messages
 
 from .models import Produto, Variacao
+from perfil.models import Perfil
 
 PER_PAGE = 9
 
@@ -16,6 +16,7 @@ class ListaProdutos(ListView):
     template_name = 'produto/lista.html'
     context_object_name = 'produtos'
     paginate_by = PER_PAGE
+    ordering = ['-id']
 
 
 class DetalheProduto(DetailView):
@@ -208,6 +209,23 @@ class AtualizarQuantidade(View):
 class ResumoDaCompra(View):
     def get(self, *arg, **kwargs):
         if not self.request.user.is_authenticated:
+            return redirect('perfil:criar')
+
+        perfil = Perfil.objects.filter(usuario=self.request.user).exists()
+        carrinho = self.request.session.get('carrinho')
+
+        if not carrinho:
+            messages.error(
+                self.request,
+                'Carrinho vazio.'
+            )
+            return redirect('produto:lista')
+
+        if not perfil:
+            messages.error(
+                self.request,
+                'Usuario sem perfil.'
+            )
             return redirect('perfil:criar')
 
         contexto = {
