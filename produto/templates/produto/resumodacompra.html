@@ -4,68 +4,242 @@
 {% block titulo %}Resumo da compra{% endblock titulo %}
 
 {% block conteudo %}
+<div class="container-fluid py-4">
+    <!-- Header da página -->
     <div class="row mb-5">
-        <div class="col-lg">
-            <h2>Resumo da sua compra</h2>
-            <p class="lead">Dados do usuário</p>
-            <p>Caso precise editar, <a href="{% url 'perfil:criar' %}">clique aqui</a></p>
-            <dl class="row">
-                <dt class="col-lg-2">Nome:</dt>
-                <dd class="col-lg-4">{{usuario.first_name}}</dd>
-
-                <dt class="col-lg-2">Sobrenome:</dt>
-                <dd class="col-lg-4">{{usuario.last_name}}</dd>
-
-                <dt class="col-lg-2">Idade:</dt>
-                <dd class="col-lg-4">{{usuario.perfil.idade}}</dd>
-
-                <dt class="col-lg-2">Nascimento:</dt>
-                <dd class="col-lg-4">{{usuario.perfil.data_de_nascimento}}</dd>
-
-                <dt class="col-lg-2">CPF:</dt>
-                <dd class="col-lg-4">{{usuario.perfil.cpf}}</dd>
-
-                <dt class="col-lg-2">E-mail:</dt>
-                <dd class="col-lg-4">{{usuario.email}}</dd>
-            </dl>
-
-            <p class="lead">Dados de endereço</p>
-            <p>Caso precise editar, <a href="{% url 'perfil:criar' %}">clique aqui</a></p>
-            <dl class="row">
-                <dt class="col-lg-2">Endereço:</dt>
-                <dd class="col-lg-4">{{usuario.perfil.endereco}}</dd>
-                <dt class="col-lg-2">Número:</dt>
-                <dd class="col-lg-4">{{usuario.perfil.numero}}</dd>
-                <dt class="col-lg-2">Complemento:</dt>
-                <dd class="col-lg-4">{{usuario.perfil.complemento}}</dd>
-                <dt class="col-lg-2">Nascimento:</dt>
-                <dd class="col-lg-4">{{usuario.perfil.bairro}}</dd>
-                <dt class="col-lg-2">Cidade:</dt>
-                <dd class="col-lg-4">{{usuario.perfil.cidade}}</dd>
-                <dt class="col-lg-2">Estado:</dt>
-                <dd class="col-lg-4">{{usuario.perfil.estado}}</dd>
-                <dt class="col-lg-2">CEP:</dt>
-                <dd class="col-lg-4">{{usuario.perfil.cep}}</dd>
-            </dl>
+        <div class="col-12">
+            <div class="text-center mb-4">
+                <h1 class="display-4 font-weight-bold text-primary mb-3">
+                    <i class="fas fa-shopping-cart mr-3"></i>Resumo da Compra
+                </h1>
+                <p class="lead text-muted">Revise seus dados e confirme sua compra</p>
+            </div>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col">
-            <h3>Resumo do seu carrinho</h3>
-            <p class="lead">Os produtos, quantidades e preços que você escolheu.</p>
-            {% include "parciais/_carrinho.html" %}
+
+    <!-- Dados do usuário -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card border-0 shadow-lg rounded-3">
+                <div class="card-header bg-gradient-primary text-white py-3 rounded-top">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-user-circle fa-2x mr-3"></i>
+                        <div>
+                            <h3 class="mb-0 font-weight-bold">Dados do Usuário</h3>
+                            <small class="opacity-75">Informações pessoais</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-user text-primary mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Nome</small>
+                                    <strong>{{usuario.first_name}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-user text-primary mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Sobrenome</small>
+                                    <strong>{{usuario.last_name}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-birthday-cake text-primary mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Idade</small>
+                                    <strong>{{usuario.perfil.idade}} anos</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-calendar text-primary mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Nascimento</small>
+                                    <strong>{{usuario.perfil.data_de_nascimento}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-id-card text-primary mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">CPF</small>
+                                    <strong>{{usuario.perfil.cpf}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-envelope text-primary mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">E-mail</small>
+                                    <strong>{{usuario.email}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a href="{% url 'perfil:criar' %}" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-edit mr-2"></i>Editar dados
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col">
-            <p class="lead text-center"><span class='font-weight-bold'>Total do carrinho</span> {{carrinho | cart_total_price | formata_preco }} </p>
+
+    <!-- Dados de endereço -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card border-0 shadow-lg rounded-3">
+                <div class="card-header bg-gradient-success text-white py-3 rounded-top">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-map-marker-alt fa-2x mr-3"></i>
+                        <div>
+                            <h3 class="mb-0 font-weight-bold">Endereço de Entrega</h3>
+                            <small class="opacity-75">Local de entrega</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-map text-success mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Endereço</small>
+                                    <strong>{{usuario.perfil.endereco}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-hashtag text-success mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Número</small>
+                                    <strong>{{usuario.perfil.numero}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-home text-success mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Complemento</small>
+                                    <strong>{{usuario.perfil.complemento|default:"Não informado"}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-building text-success mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Bairro</small>
+                                    <strong>{{usuario.perfil.bairro}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-city text-success mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Cidade</small>
+                                    <strong>{{usuario.perfil.cidade}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-flag text-success mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Estado</small>
+                                    <strong>{{usuario.perfil.estado}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <i class="fas fa-mail-bulk text-success mr-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">CEP</small>
+                                    <strong>{{usuario.perfil.cep}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a href="{% url 'perfil:criar' %}" class="btn btn-outline-success btn-sm">
+                            <i class="fas fa-edit mr-2"></i>Editar endereço
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class='row'>
-        <div class="col">
-            <a class="btn btn-block btn-primary btn-lg" href="#">
-                Finalizar pedido e pagar
-            </a>
+
+    <!-- Resumo do carrinho -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card border-0 shadow-lg rounded-3">
+                <div class="card-header bg-gradient-info text-white py-3 rounded-top">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-shopping-bag fa-2x mr-3"></i>
+                        <div>
+                            <h3 class="mb-0 font-weight-bold">Resumo do Carrinho</h3>
+                            <small class="opacity-75">Produtos selecionados</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    {% include "parciais/_carrinho.html" %}
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Total e botão de finalizar -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-lg rounded-3 bg-gradient-warning text-white">
+                <div class="card-body p-4 text-center">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h2 class="mb-2 font-weight-bold">
+                                <i class="fas fa-calculator mr-3"></i>Total da Compra
+                            </h2>
+                            <p class="mb-0 opacity-75">Valor total dos produtos selecionados</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="display-4 font-weight-bold">
+                                {{carrinho | cart_total_price | formata_preco }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão de finalizar compra -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="text-center">
+                <a href="{% url 'pedido:pagar' %}" class="btn btn-primary btn-lg px-5 py-3 shadow-lg">
+                    <i class="fas fa-credit-card mr-3"></i>
+                    Finalizar Compra
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock conteudo %}

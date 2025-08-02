@@ -1,3 +1,11 @@
+/* ==========================================================================
+   ECOMMERCE DJANGO - STYLESHEET
+   ========================================================================== */
+
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
+
 html,
 body {
   height: 100%;
@@ -15,6 +23,40 @@ main {
   flex: 1;
 }
 
+/* ==========================================================================
+   2. TYPOGRAPHY & TEXT STYLES
+   ========================================================================== */
+
+.display-4 {
+  font-size: 2.5rem;
+}
+
+/* ==========================================================================
+   3. FORM STYLES
+   ========================================================================== */
+
+.form-group textarea {
+  width: 100%;
+}
+
+ul.errorlist {
+  list-style-type: none;
+  margin: 5px 0;
+  padding: 0;
+  font-size: 13px;
+  color: red;
+  display: block;
+}
+
+ul.errorlist li {
+  display: block;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   4. PRODUCT STYLES
+   ========================================================================== */
+
 .product-price-block {
   font-size: 1.5rem;
 }
@@ -31,13 +73,11 @@ main {
   color: #6c757d;
 }
 
-/* Garantir que o preço principal tenha sempre a mesma estilização */
 .lead.product-price {
   font-size: 1.5rem;
   color: #222 !important;
 }
 
-/* Estilização para preços em cards */
 .product-price-block .product-price {
   font-size: 1.5rem;
   color: #222 !important;
@@ -46,6 +86,617 @@ main {
 .border-top-light-custom {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
+
+/* ==========================================================================
+   5. CART STYLES
+   ========================================================================== */
+
+.nav-cart,
+.nav-cart a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.cart-img {
+  max-width: 150px;
+}
+
+.quantidade-item {
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* Tabela do carrinho */
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  border-top: none;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  border-top: 1px solid #f8f9fa;
+  vertical-align: middle;
+  padding: 1rem 0.75rem;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+.cart-img {
+  max-width: 80px;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quantidade-item {
+  min-width: 40px;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.5rem 0.75rem;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   6. BUTTON STYLES
+   ========================================================================== */
+
+.btn,
+.btn:focus {
+  border-radius: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none !important;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+  color: #fff !important;
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.13);
+}
+
+.btn-secondary {
+  background: linear-gradient(90deg, #6c757d 60%, #343a40 100%);
+  color: #fff !important;
+  border: none;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: linear-gradient(90deg, #343a40 60%, #6c757d 100%);
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(52, 58, 64, 0.13);
+}
+
+.btn-outline-secondary:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.btn-lg {
+  padding: 0.8rem 2.2rem;
+  font-size: 1.25rem;
+  border-radius: 2.5rem;
+}
+
+.btn-sm {
+  padding: 0.3rem 1.1rem;
+  font-size: 0.9rem;
+  border-radius: 1.2rem;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* ==========================================================================
+   7. NAVBAR STYLES
+   ========================================================================== */
+
+.navbar {
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07), 0 1.5px 4px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s;
+}
+
+.navbar:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  color: #2d2d2d !important;
+}
+
+.navbar-nav .nav-link {
+  color: #444 !important;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  padding: 0.5rem 1.1rem;
+  margin: 0 0.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  background: #f0f4ff;
+  color: #0056b3 !important;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.08);
+  text-decoration: none;
+}
+
+.navbar .btn-primary {
+  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+  border: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.navbar .btn-primary:hover {
+  background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+}
+
+.navbar .form-control {
+  border-radius: 2rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+  transition: border 0.2s;
+}
+
+.navbar .form-control:focus {
+  border: 1.5px solid #007bff;
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.08);
+}
+
+.nav-cart-count {
+  font-size: 0.85rem;
+  padding: 0.2em 0.6em;
+  background: #007bff;
+  color: #fff;
+  border-radius: 1rem;
+  font-weight: bold;
+  box-shadow: 0 1px 4px rgba(0, 123, 255, 0.1);
+}
+
+.custom-cart-badge {
+  top: 0;
+  right: -15px;
+  font-size: 0.8rem;
+}
+
+.custom-navbar-form {
+  position: relative;
+}
+
+.custom-navbar-search {
+  min-width: 180px;
+}
+
+/* ==========================================================================
+   8. CARD STYLES
+   ========================================================================== */
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-header {
+  border-bottom: none;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+  border: 1px solid #e9ecef;
+}
+
+.rounded-3 {
+  border-radius: 1rem !important;
+}
+
+/* ==========================================================================
+   9. GRADIENT BACKGROUNDS
+   ========================================================================== */
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+}
+
+.bg-gradient-success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+}
+
+.bg-gradient-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+}
+
+.bg-gradient-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+}
+
+/* ==========================================================================
+   10. CARD HEADER STYLES
+   ========================================================================== */
+
+/* Classes únicas para gradientes do carrinho */
+.cart-header-primary {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+.cart-header-success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+.cart-header-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+.cart-header-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+/* Cores brancas para elementos filhos */
+.cart-header-primary h3,
+.cart-header-primary small,
+.cart-header-primary i,
+.cart-header-success h3,
+.cart-header-success small,
+.cart-header-success i,
+.cart-header-info h3,
+.cart-header-info small,
+.cart-header-info i,
+.cart-header-warning h3,
+.cart-header-warning small,
+.cart-header-warning i {
+  color: #ffffff !important;
+}
+
+/* Classes específicas para elementos filhos */
+.cart-header-primary .d-flex h3,
+.cart-header-primary .d-flex small,
+.cart-header-primary .d-flex i,
+.cart-header-success .d-flex h3,
+.cart-header-success .d-flex small,
+.cart-header-success .d-flex i,
+.cart-header-info .d-flex h3,
+.cart-header-info .d-flex small,
+.cart-header-info .d-flex i,
+.cart-header-warning .d-flex h3,
+.cart-header-warning .d-flex small,
+.cart-header-warning .d-flex i {
+  color: #ffffff !important;
+}
+
+/* Classes específicas para gradientes com máxima especificidade */
+body .container-fluid .card .card-header.bg-gradient-primary,
+body .container-fluid .card .card-header.bg-gradient-success,
+body .container-fluid .card .card-header.bg-gradient-info,
+body .container-fluid .card .card-header.bg-gradient-warning {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+body .container-fluid .card .card-header.bg-gradient-success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+}
+
+body .container-fluid .card .card-header.bg-gradient-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+}
+
+body .container-fluid .card .card-header.bg-gradient-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+}
+
+/* Forçar cores brancas em todos os elementos filhos com máxima especificidade */
+body .container-fluid .card .card-header.bg-gradient-primary h3,
+body .container-fluid .card .card-header.bg-gradient-primary small,
+body .container-fluid .card .card-header.bg-gradient-primary i,
+body .container-fluid .card .card-header.bg-gradient-success h3,
+body .container-fluid .card .card-header.bg-gradient-success small,
+body .container-fluid .card .card-header.bg-gradient-success i,
+body .container-fluid .card .card-header.bg-gradient-info h3,
+body .container-fluid .card .card-header.bg-gradient-info small,
+body .container-fluid .card .card-header.bg-gradient-info i,
+body .container-fluid .card .card-header.bg-gradient-warning h3,
+body .container-fluid .card .card-header.bg-gradient-warning small,
+body .container-fluid .card .card-header.bg-gradient-warning i {
+  color: #ffffff !important;
+}
+
+/* Classes específicas para elementos filhos com máxima especificidade */
+body .container-fluid .card .card-header.bg-gradient-primary .d-flex h3,
+body .container-fluid .card .card-header.bg-gradient-primary .d-flex small,
+body .container-fluid .card .card-header.bg-gradient-primary .d-flex i,
+body .container-fluid .card .card-header.bg-gradient-success .d-flex h3,
+body .container-fluid .card .card-header.bg-gradient-success .d-flex small,
+body .container-fluid .card .card-header.bg-gradient-success .d-flex i,
+body .container-fluid .card .card-header.bg-gradient-info .d-flex h3,
+body .container-fluid .card .card-header.bg-gradient-info .d-flex small,
+body .container-fluid .card .card-header.bg-gradient-info .d-flex i,
+body .container-fluid .card .card-header.bg-gradient-warning .d-flex h3,
+body .container-fluid .card .card-header.bg-gradient-warning .d-flex small,
+body .container-fluid .card .card-header.bg-gradient-warning .d-flex i {
+  color: #ffffff !important;
+}
+
+/* Classes específicas para text-white com máxima especificidade */
+body .container-fluid .card .card-header.text-white {
+  color: #ffffff !important;
+}
+
+body .container-fluid .card .card-header.text-white h3,
+body .container-fluid .card .card-header.text-white small,
+body .container-fluid .card .card-header.text-white i {
+  color: #ffffff !important;
+}
+
+/* Estilos específicos para card-headers com gradientes */
+.card-header.bg-gradient-primary {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none;
+}
+
+.card-header.bg-gradient-primary h3,
+.card-header.bg-gradient-primary small,
+.card-header.bg-gradient-primary i {
+  color: #ffffff !important;
+}
+
+.card-header.bg-gradient-success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none;
+}
+
+.card-header.bg-gradient-success h3,
+.card-header.bg-gradient-success small,
+.card-header.bg-gradient-success i {
+  color: #ffffff !important;
+}
+
+.card-header.bg-gradient-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none;
+}
+
+.card-header.bg-gradient-info h3,
+.card-header.bg-gradient-info small,
+.card-header.bg-gradient-info i {
+  color: #ffffff !important;
+}
+
+.card-header.bg-gradient-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none;
+}
+
+.card-header.bg-gradient-warning h3,
+.card-header.bg-gradient-warning small,
+.card-header.bg-gradient-warning i {
+  color: #ffffff !important;
+}
+
+/* Garantir que o texto seja sempre branco nos headers com gradiente */
+.card-header.text-white {
+  color: #ffffff !important;
+}
+
+.card-header.text-white h3,
+.card-header.text-white small,
+.card-header.text-white i {
+  color: #ffffff !important;
+}
+
+/* Estilos específicos para card-headers com gradientes e texto branco */
+.card-header.bg-gradient-primary.text-white,
+.card-header.bg-gradient-success.text-white,
+.card-header.bg-gradient-info.text-white,
+.card-header.bg-gradient-warning.text-white {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: #ffffff !important;
+}
+
+.card-header.bg-gradient-success.text-white {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+}
+
+.card-header.bg-gradient-info.text-white {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+}
+
+.card-header.bg-gradient-warning.text-white {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+}
+
+/* Forçar cores brancas em todos os elementos filhos */
+.card-header.bg-gradient-primary.text-white h3,
+.card-header.bg-gradient-primary.text-white small,
+.card-header.bg-gradient-primary.text-white i,
+.card-header.bg-gradient-success.text-white h3,
+.card-header.bg-gradient-success.text-white small,
+.card-header.bg-gradient-success.text-white i,
+.card-header.bg-gradient-info.text-white h3,
+.card-header.bg-gradient-info.text-white small,
+.card-header.bg-gradient-info.text-white i,
+.card-header.bg-gradient-warning.text-white h3,
+.card-header.bg-gradient-warning.text-white small,
+.card-header.bg-gradient-warning.text-white i {
+  color: #ffffff !important;
+}
+
+/* Estilos de alta especificidade para sobrescrever Bootstrap */
+.card .card-header.bg-gradient-primary,
+.card .card-header.bg-gradient-success,
+.card .card-header.bg-gradient-info,
+.card .card-header.bg-gradient-warning {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: #ffffff !important;
+}
+
+.card .card-header.bg-gradient-success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+}
+
+.card .card-header.bg-gradient-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+}
+
+.card .card-header.bg-gradient-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+}
+
+/* Forçar cores brancas com alta especificidade */
+.card .card-header.bg-gradient-primary h3,
+.card .card-header.bg-gradient-primary small,
+.card .card-header.bg-gradient-primary i,
+.card .card-header.bg-gradient-success h3,
+.card .card-header.bg-gradient-success small,
+.card .card-header.bg-gradient-success i,
+.card .card-header.bg-gradient-info h3,
+.card .card-header.bg-gradient-info small,
+.card .card-header.bg-gradient-info i,
+.card .card-header.bg-gradient-warning h3,
+.card .card-header.bg-gradient-warning small,
+.card .card-header.bg-gradient-warning i {
+  color: #ffffff !important;
+}
+
+/* Classes específicas para o carrinho com máxima especificidade */
+.container-fluid .card .card-header.bg-gradient-primary,
+.container-fluid .card .card-header.bg-gradient-success,
+.container-fluid .card .card-header.bg-gradient-info,
+.container-fluid .card .card-header.bg-gradient-warning {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: #ffffff !important;
+}
+
+.container-fluid .card .card-header.bg-gradient-success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+}
+
+.container-fluid .card .card-header.bg-gradient-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+}
+
+.container-fluid .card .card-header.bg-gradient-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+}
+
+/* Forçar cores brancas com máxima especificidade */
+.container-fluid .card .card-header.bg-gradient-primary h3,
+.container-fluid .card .card-header.bg-gradient-primary small,
+.container-fluid .card .card-header.bg-gradient-primary i,
+.container-fluid .card .card-header.bg-gradient-success h3,
+.container-fluid .card .card-header.bg-gradient-success small,
+.container-fluid .card .card-header.bg-gradient-success i,
+.container-fluid .card .card-header.bg-gradient-info h3,
+.container-fluid .card .card-header.bg-gradient-info small,
+.container-fluid .card .card-header.bg-gradient-info i,
+.container-fluid .card .card-header.bg-gradient-warning h3,
+.container-fluid .card .card-header.bg-gradient-warning small,
+.container-fluid .card .card-header.bg-gradient-warning i {
+  color: #ffffff !important;
+}
+
+/* Classes específicas para elementos filhos com máxima especificidade */
+.container-fluid .card .card-header.bg-gradient-primary .d-flex h3,
+.container-fluid .card .card-header.bg-gradient-primary .d-flex small,
+.container-fluid .card .card-header.bg-gradient-primary .d-flex i,
+.container-fluid .card .card-header.bg-gradient-success .d-flex h3,
+.container-fluid .card .card-header.bg-gradient-success .d-flex small,
+.container-fluid .card .card-header.bg-gradient-success .d-flex i,
+.container-fluid .card .card-header.bg-gradient-info .d-flex h3,
+.container-fluid .card .card-header.bg-gradient-info .d-flex small,
+.container-fluid .card .card-header.bg-gradient-info .d-flex i,
+.container-fluid .card .card-header.bg-gradient-warning .d-flex h3,
+.container-fluid .card .card-header.bg-gradient-warning .d-flex small,
+.container-fluid .card .card-header.bg-gradient-warning .d-flex i {
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   11. FOOTER STYLES
+   ========================================================================== */
+
+.footer-modern {
+  background: #181c23;
+  color: #e9ecef;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+}
+
+.footer-modern .footer-icon-link {
+  color: #e9ecef;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+
+.footer-modern .footer-icon-link:hover {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+.footer-modern .text-secondary {
+  color: #adb5bd !important;
+}
+
+/* ==========================================================================
+   12. RESPONSIVE GRID SYSTEM
+   ========================================================================== */
 
 @media (min-width: 34em) {
   .card-columns {
@@ -63,140 +714,22 @@ main {
   }
 }
 
-ul.errorlist {
-  list-style-type: none;
-  margin: 5px 0;
-  padding: 0;
-  font-size: 13px;
-  color: red;
-  display: block;
-}
+/* ==========================================================================
+   13. RESPONSIVE STYLES
+   ========================================================================== */
 
-ul.errorlist li {
-  display: block;
-  font-weight: bold;
-}
-
-/*
-@media (min-width: 48em) {
-    .card-columns {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-    }
-}
-
-
-@media (min-width: 62em) {
-    .card-columns {
-        -webkit-column-count: 4;
-        -moz-column-count: 4;
-        column-count: 4;
-    }
-}
-
-@media (min-width: 75em) {
-    .card-columns {
-        -webkit-column-count: 5;
-        -moz-column-count: 5;
-        column-count: 5;
-    }
-}
-*/
-.form-group textarea {
-  width: 100%;
-}
-.nav-cart,
-.nav-cart a {
-  color: #fff;
-  text-decoration: none;
-}
-.cart-img {
-  max-width: 150px;
-}
-
-/* Estilos para os botões de quantidade */
-.quantidade-item {
-  font-weight: bold;
-  min-width: 30px;
-  text-align: center;
-  display: inline-block;
-}
-
-.btn-outline-secondary:hover {
-  background-color: #007bff;
-  border-color: #007bff;
-  color: white;
-}
-
-/* --- Navbar Moderna --- */
-.navbar {
-  border-radius: 1rem;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07), 0 1.5px 4px rgba(0, 0, 0, 0.03);
-  transition: box-shadow 0.2s;
-}
-.navbar:hover {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-.navbar-brand {
-  font-size: 1.5rem;
-  letter-spacing: 0.5px;
-  color: #2d2d2d !important;
-}
-.navbar-nav .nav-link {
-  color: #444 !important;
-  font-weight: 500;
-  border-radius: 0.5rem;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  padding: 0.5rem 1.1rem;
-  margin: 0 0.2rem;
-  display: flex;
-  align-items: center;
-}
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  background: #f0f4ff;
-  color: #0056b3 !important;
-  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.08);
-  text-decoration: none;
-}
-.navbar .btn-primary {
-  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
-  border: none;
-  font-weight: 500;
-  transition: background 0.2s;
-}
-.navbar .btn-primary:hover {
-  background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
-}
-.navbar .form-control {
-  border-radius: 2rem;
-  border: 1px solid #e0e0e0;
-  box-shadow: none;
-  transition: border 0.2s;
-}
-.navbar .form-control:focus {
-  border: 1.5px solid #007bff;
-  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.08);
-}
-.nav-cart-count {
-  font-size: 0.85rem;
-  padding: 0.2em 0.6em;
-  background: #007bff;
-  color: #fff;
-  border-radius: 1rem;
-  font-weight: bold;
-  box-shadow: 0 1px 4px rgba(0, 123, 255, 0.1);
-}
+/* Large devices (desktops, less than 1200px) */
 @media (max-width: 991.98px) {
   .navbar {
     border-radius: 0.5rem;
     padding: 0.7rem 1rem;
   }
+
   .navbar-nav .nav-link {
     margin: 0.2rem 0;
     padding: 0.7rem 1rem;
   }
+
   .navbar .form-inline {
     margin-top: 1rem;
     width: 100%;
@@ -204,90 +737,45 @@ ul.errorlist li {
   }
 }
 
-/* --- Botões Modernos --- */
-.btn,
-.btn:focus {
-  border-radius: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  outline: none !important;
-  border: none;
-}
-.btn-primary {
-  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
-  color: #fff !important;
-  border: none;
-}
-.btn-primary:hover,
-.btn-primary:focus {
-  background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
-  color: #fff !important;
-  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.13);
-}
-.btn-secondary {
-  background: linear-gradient(90deg, #6c757d 60%, #343a40 100%);
-  color: #fff !important;
-  border: none;
-}
-.btn-secondary:hover,
-.btn-secondary:focus {
-  background: linear-gradient(90deg, #343a40 60%, #6c757d 100%);
-  color: #fff !important;
-  box-shadow: 0 4px 16px rgba(52, 58, 64, 0.13);
-}
-.btn-lg {
-  padding: 0.8rem 2.2rem;
-  font-size: 1.25rem;
-  border-radius: 2.5rem;
-}
-.btn-sm {
-  padding: 0.3rem 1.1rem;
-  font-size: 0.9rem;
-  border-radius: 1.2rem;
-}
-.btn-block {
-  display: block;
-  width: 100%;
+/* Medium devices (tablets, less than 768px) */
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .card-body {
+    padding: 1.5rem !important;
+  }
+
+  .btn-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+  }
 }
 
-/* Badge do carrinho na navbar */
-.custom-cart-badge {
-  top: 0;
-  right: -15px;
-  font-size: 0.8rem;
-}
-/* Formulário da navbar com position relative */
-.custom-navbar-form {
-  position: relative;
-}
-/* Input de busca da navbar com largura mínima */
-.custom-navbar-search {
-  min-width: 180px;
+/* Small devices (landscape phones, less than 576px) */
+@media (max-width: 576px) {
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .card-body {
+    padding: 1rem !important;
+  }
+
+  .d-flex.align-items-center {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .d-flex.align-items-center i {
+    margin-bottom: 0.5rem;
+    margin-right: 0 !important;
+  }
 }
 
-/* --- Rodapé Moderno --- */
-.footer-modern {
-  background: #181c23;
-  color: #e9ecef;
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
-  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.08);
-  font-size: 1rem;
-}
-.footer-modern .footer-icon-link {
-  color: #e9ecef;
-  font-size: 1.3rem;
-  transition: color 0.3s;
-}
-.footer-modern .footer-icon-link:hover {
-  color: #ffc107;
-  text-decoration: none;
-}
-.footer-modern .text-secondary {
-  color: #adb5bd !important;
-}
+/* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 767.98px) {
   .footer-modern {
     font-size: 0.95rem;
@@ -295,4 +783,339 @@ ul.errorlist li {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+}
+
+/* ==========================================================================
+   14. CART SPECIFIC STYLES
+   ========================================================================== */
+
+.cart-empty-icon {
+  opacity: 0.3;
+}
+
+.cart-summary-card {
+  transition: transform 0.3s ease;
+}
+
+.cart-summary-card:hover {
+  transform: translateY(-2px);
+}
+
+.cart-table-responsive {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.cart-item-hover {
+  transition: background-color 0.2s ease;
+}
+
+.cart-item-hover:hover {
+  background-color: #f8f9fa;
+}
+
+.cart-quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cart-price-display {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.cart-price-original {
+  text-decoration: line-through;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.cart-remove-btn {
+  color: #dc3545;
+  transition: color 0.2s ease;
+}
+
+.cart-remove-btn:hover {
+  color: #c82333;
+  text-decoration: none;
+}
+
+.cart-variation-badge {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+}
+
+/* ==========================================================================
+   15. NAVBAR CART STYLES
+   ========================================================================== */
+
+.nav-cart-link {
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.nav-cart-link:hover {
+  background-color: #f8f9fa;
+  text-decoration: none;
+}
+
+.nav-cart-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav-cart-icon {
+  font-size: 1.1rem;
+}
+
+.custom-cart-badge {
+  top: -5px;
+  right: -8px;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   16. CART RESPONSIVE STYLES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .cart-table-responsive {
+    font-size: 0.9rem;
+  }
+
+  .cart-quantity-controls {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .cart-price-display {
+    font-size: 0.9rem;
+  }
+
+  .text-md-right {
+    text-align: center !important;
+  }
+
+  .col-md-6.text-md-right {
+    margin-top: 1rem;
+  }
+
+  /* Tabela responsiva */
+  .table th,
+  .table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .cart-img {
+    max-width: 60px;
+  }
+
+  .quantidade-item {
+    min-width: 35px;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .btn-sm {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .cart-table-responsive {
+    font-size: 0.8rem;
+  }
+
+  .cart-quantity-controls {
+    gap: 0.2rem;
+  }
+
+  .cart-price-display {
+    font-size: 0.8rem;
+  }
+
+  .cart-variation-badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* Tabela responsiva para mobile */
+  .table th,
+  .table td {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+  }
+
+  .cart-img {
+    max-width: 50px;
+  }
+
+  .quantidade-item {
+    min-width: 30px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .btn-sm {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.7rem;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+/* ==========================================================================
+   17. NAVBAR RESPONSIVE STYLES
+   ========================================================================== */
+
+@media (max-width: 991.98px) {
+  .nav-cart-link {
+    padding: 0.75rem 1rem !important;
+  }
+
+  .nav-cart-text {
+    font-size: 1rem;
+  }
+
+  .custom-cart-badge {
+    top: -3px;
+    right: -5px;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+    min-width: 18px;
+    height: 18px;
+  }
+}
+
+/* ==========================================================================
+   18. CARRINHO GRADIENTES FORÇADOS
+   ========================================================================== */
+
+/* Estilos forçados para gradientes do carrinho */
+.card-header[style*="background"] {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: #ffffff !important;
+}
+
+.card-header[style*="background"] h3,
+.card-header[style*="background"] small,
+.card-header[style*="background"] i {
+  color: #ffffff !important;
+}
+
+/* Classes específicas com máxima prioridade */
+.cart-header-primary,
+.cart-header-info,
+.cart-header-success,
+.cart-header-warning {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+.cart-header-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+}
+
+.cart-header-success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+}
+
+.cart-header-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+}
+
+/* Forçar cores brancas em todos os elementos */
+.cart-header-primary h3,
+.cart-header-primary small,
+.cart-header-primary i,
+.cart-header-info h3,
+.cart-header-info small,
+.cart-header-info i,
+.cart-header-success h3,
+.cart-header-success small,
+.cart-header-success i,
+.cart-header-warning h3,
+.cart-header-warning small,
+.cart-header-warning i {
+  color: #ffffff !important;
+}
+
+/* Estilos inline forçados via CSS */
+.card-header[style*="background: linear-gradient"] {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: #ffffff !important;
+}
+
+.card-header[style*="background: linear-gradient"] h3,
+.card-header[style*="background: linear-gradient"] small,
+.card-header[style*="background: linear-gradient"] i {
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   19. GRADIENTES CARRINHO - SOLUÇÃO DEFINITIVA
+   ========================================================================== */
+
+/* Gradientes específicos para o carrinho */
+.card-header.cart-header-primary {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+.card-header.cart-header-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+.card-header.cart-header-success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+.card-header.cart-header-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+/* Cores brancas forçadas para todos os elementos filhos */
+.card-header.cart-header-primary h3,
+.card-header.cart-header-primary small,
+.card-header.cart-header-primary i,
+.card-header.cart-header-info h3,
+.card-header.cart-header-info small,
+.card-header.cart-header-info i,
+.card-header.cart-header-success h3,
+.card-header.cart-header-success small,
+.card-header.cart-header-success i,
+.card-header.cart-header-warning h3,
+.card-header.cart-header-warning small,
+.card-header.cart-header-warning i {
+  color: #ffffff !important;
+}
+
+/* Opacidade para elementos small */
+.card-header.cart-header-primary small,
+.card-header.cart-header-info small,
+.card-header.cart-header-success small,
+.card-header.cart-header-warning small {
+  opacity: 0.75 !important;
 }
