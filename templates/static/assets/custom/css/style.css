@@ -1119,3 +1119,234 @@ body .container-fluid .card .card-header.text-white i {
 .card-header.cart-header-warning small {
   opacity: 0.75 !important;
 }
+
+/* ==========================================================================
+   20. MODERN AUTH FORMS STYLES
+   ========================================================================== */
+
+/* Estilos para formulários de autenticação modernos */
+.auth-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  padding: 2rem 0;
+  margin: -1.5rem -1.5rem 0 -1.5rem;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.auth-header {
+  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.auth-header h2 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.auth-content {
+  padding: 3rem;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h4 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.form-section p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+/* Estilos para campos de formulário modernos */
+.auth-container .form-control {
+  border-radius: 12px;
+  border: 2px solid #e1e5e9;
+  padding: 12px 16px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.auth-container .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  background: white;
+}
+
+.auth-container .form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Botões modernos para autenticação */
+.btn-modern {
+  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 32px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+  color: white;
+}
+
+/* Espaçamento elegante para ícones nos botões */
+.btn-modern i,
+.btn-login i {
+  margin-right: 12px !important;
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+
+/* Divisor estilizado */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e1e5e9, transparent);
+  margin: 2rem 0;
+}
+
+/* Login social */
+.social-login {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.social-btn {
+  background: white;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  padding: 12px 24px;
+  margin: 0.5rem;
+  transition: all 0.3s ease;
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.social-btn:hover {
+  border-color: #007bff;
+  color: #007bff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* Espaçamento para ícones dos botões sociais */
+.social-btn i {
+  margin-right: 8px !important;
+  font-size: 1em;
+  vertical-align: middle;
+}
+
+/* Responsividade para formulários de autenticação */
+@media (max-width: 768px) {
+  .auth-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .auth-header {
+    padding: 1.5rem;
+  }
+
+  .auth-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .auth-container {
+    margin: -1rem -1rem 0 -1rem;
+    padding: 1rem 0;
+  }
+}
+
+/* Estilos para crispy forms nos formulários de auth */
+.auth-container .crispy-form {
+  margin-bottom: 1.5rem;
+}
+
+.auth-container .crispy-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.auth-container .crispy-form label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.auth-container .crispy-form input,
+.auth-container .crispy-form select,
+.auth-container .crispy-form textarea {
+  border-radius: 12px;
+  border: 2px solid #e1e5e9;
+  padding: 12px 16px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.auth-container .crispy-form input:focus,
+.auth-container .crispy-form select:focus,
+.auth-container .crispy-form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  background: white;
+}
+
+/* Animações suaves */
+.auth-card {
+  animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efeitos hover para cards */
+.auth-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.form {
+  max-width: 100px;
+}
