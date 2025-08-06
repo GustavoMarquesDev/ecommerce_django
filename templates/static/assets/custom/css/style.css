@@ -1350,3 +1350,7 @@ body .container-fluid .card .card-header.text-white i {
 .form {
   max-width: 100px;
 }
+
+.svg-inline--fa {
+  margin-right: 0.2rem;
+}

@@ -5,7 +5,7 @@ from pedido.models import Pedido, ItemPedido
 
 class ItemPedidoInline(admin.TabularInline):
     model = ItemPedido
-    extra = 1
+    extra = 0
 
 
 class PedidoAdmin(admin.ModelAdmin):
