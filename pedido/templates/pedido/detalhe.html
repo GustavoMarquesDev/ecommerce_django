@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load gustavoFilters %}
+{% load static %}
+
+{% block titulo %}Pedido N. {{pedido.pk}}{% endblock titulo %}
+
+{% block conteudo %}
+
+{% include "parciais/_pedido.html" %}
+
+{% endblock conteudo %}

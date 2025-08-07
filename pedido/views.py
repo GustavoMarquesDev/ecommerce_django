@@ -2,7 +2,7 @@ from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import redirect
 from django.urls import reverse
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from django.views import View
 from django.http import HttpResponse
 from django.contrib import messages
@@ -12,25 +12,25 @@ from .models import Pedido, ItemPedido
 import utils
 
 
-class DispatchLoginRequired(View):
+class DispatchLoginRequiredMixin(View):
     def dispatch(self, *args, **kwargs):
         if not self.request.user.is_authenticated:
             return redirect('perfil:criar')
 
         return super().dispatch(*args, **kwargs)
 
+    def get_queryset(self, *args, **kwargs):
+        qs = super().get_queryset(*args, **kwargs)  # type: ignore
+        qs = qs.filter(usuario=self.request.user)
 
-class Pagar(DispatchLoginRequired, DetailView):
+        return super().get_queryset()  # type: ignore
+
+
+class Pagar(DispatchLoginRequiredMixin, DetailView):
     template_name = 'pedido/pagar.html'
     model = Pedido
     pk_url_kwarg = 'pk'
     context_object_name = 'pedido'
-
-    def get_queryset(self, *args, **kwargs):
-        qs = super().get_queryset(*args, **kwargs)
-        qs = qs.filter(usuario=self.request.user)
-
-        return super().get_queryset()
 
 
 class SalvarPedido(View):
@@ -124,11 +124,16 @@ class SalvarPedido(View):
         )
 
 
-class Detalhe(View):
-    def get(self, *arg, **kwargs):
-        return HttpResponse("Página de detalhe do pedido")
+class Detalhe(DispatchLoginRequiredMixin, DetailView):
+    template_name = 'pedido/detalhe.html'
+    model = Pedido
+    context_object_name = 'pedido'
+    pk_url_kwarg = 'pk'
 
 
-class Lista(View):
-    def get(self, *arg, **kwargs):
-        return HttpResponse("Página de lista de pedidos")
+class Lista(DispatchLoginRequiredMixin, ListView):
+    template_name = 'pedido/lista.html'
+    model = Pedido
+    context_object_name = 'pedidos'
+    paginate_by = 10
+    ordering = ['-id']
