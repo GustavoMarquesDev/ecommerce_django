@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     "pedido",
     "produto",
     "perfil",
-    "debug_toolbar",
     "crispy_forms",
     "crispy_bootstrap4",
     "django_browser_reload",
@@ -58,7 +57,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
@@ -160,9 +158,3 @@ SESSION_SAVE_EVERY_REQUEST = False
 
 # Serializer - Padrão JSON
 # SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-
-# Para sessions em arquivos ao invés da base de dados
-# SESSION_ENGINE = "django.contrib.sessions.backends.file"
-# SESSION_FILE_PATH = '/home/luizotavio/Desktop/temp
-
-INTERNAL_IPS = ['127.0.0.1']

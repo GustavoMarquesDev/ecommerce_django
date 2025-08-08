@@ -1168,6 +1168,11 @@ body .container-fluid .card .card-header.text-white i {
   margin-bottom: 2rem;
 }
 
+.form-section strong {
+  color: rgb(203, 18, 18);
+  font-size: 0.9rem;
+}
+
 .form-section h4 {
   color: #333;
   font-weight: 600;
@@ -1185,10 +1190,14 @@ body .container-fluid .card .card-header.text-white i {
 .auth-container .form-control {
   border-radius: 12px;
   border: 2px solid #e1e5e9;
-  padding: 12px 16px;
+  padding: auto;
   font-size: 1rem;
   transition: all 0.3s ease;
   background: #f8f9fa;
+}
+
+.form-text {
+  display: none;
 }
 
 .auth-container .form-control:focus {
