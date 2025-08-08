@@ -5,18 +5,61 @@
 {% block titulo %}Pagamento{% endblock titulo %}
 
 {% block conteudo %}
-<div class="row">
-    <div class="col">
-        <h3>Escolha o método de pagamento</h3>
-        <p>Para o desenvolvedor: adicione seu método de pagamento preferido.</p>
-    </div>
-</div>
+<div class="pagamento-container">
+    <div class="container">
+        <div class="pagamento-header">
+            <h3>Escolha o método de pagamento</h3>
+            <p>Para o desenvolvedor: adicione seu método de pagamento preferido.</p>
+        </div>
 
-{% include "parciais/_pedido.html" %}
+        <div class="pagamento-methods">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="payment-method-card">
+                        <div class="payment-method-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="payment-method-title">Cartão de Crédito</div>
+                        <div class="payment-method-description">Pague com cartão de crédito de forma segura</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="payment-method-card">
+                        <div class="payment-method-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="payment-method-title">PIX</div>
+                        <div class="payment-method-description">Pagamento instantâneo via PIX</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="payment-method-card">
+                        <div class="payment-method-icon">
+                            <i class="fas fa-barcode"></i>
+                        </div>
+                        <div class="payment-method-title">Boleto Bancário</div>
+                        <div class="payment-method-description">Gere um boleto para pagamento</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="payment-method-card">
+                        <div class="payment-method-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="payment-method-title">Carteira Digital</div>
+                        <div class="payment-method-description">Use sua carteira digital preferida</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<div class="row mt-4">
-    <div class="col">
-        <a href="#" class="btn btn-primary btn-block btn-lg">Pagar</a>
+        {% include "parciais/_pedido.html" %}
+
+        <div class="row mt-4">
+            <div class="col text-center">
+                <a href="#" class="btn pagar-btn">Pagar</a>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock conteudo %}

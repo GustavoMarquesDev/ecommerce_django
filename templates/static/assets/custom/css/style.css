@@ -1363,3 +1363,534 @@ body .container-fluid .card .card-header.text-white i {
 .svg-inline--fa {
   margin-right: 0.2rem;
 }
+
+/* ==========================================================================
+   PEDIDOS TEMPLATES - MODERN STYLES
+   ========================================================================== */
+
+/* Pedidos Lista Template */
+.pedidos-container {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.pedidos-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pedidos-header h3 {
+  color: #6c757d;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+}
+
+.pedidos-header p {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.pedidos-table-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pedidos-table {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pedidos-table thead {
+  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+}
+
+.pedidos-table th {
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 1.2rem 1rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pedidos-table tbody tr {
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pedidos-table tbody tr:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pedidos-table td {
+  border: none;
+  padding: 1.2rem 1rem;
+  vertical-align: middle;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.pedido-number {
+  font-weight: 700;
+  color: #007bff;
+  font-size: 1.1rem;
+}
+
+.pedido-total {
+  font-weight: 700;
+  color: #27ae60;
+  font-size: 1.1rem;
+}
+
+.pedido-status {
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pedido-status.criado {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+}
+
+.pedido-status.pago {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+  color: white;
+}
+
+.pedido-status.cancelado {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+}
+
+.pedido-details-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pedido-details-link:hover {
+  color: #0056b3;
+  text-decoration: none;
+  transform: translateX(5px);
+}
+
+.pedido-details-link i {
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.pedido-details-link:hover i {
+  transform: scale(1.2);
+}
+
+/* Pagamento Template */
+.pagamento-container {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.pagamento-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.pagamento-header h3 {
+  color: #6c757d;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+}
+
+.pagamento-header p {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.pagamento-methods {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.payment-method-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.payment-method-card:hover {
+  border-color: #007bff;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.payment-method-card.selected {
+  border-color: #007bff;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+}
+
+.payment-method-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.payment-method-title {
+  font-weight: 700;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.payment-method-description {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.pagar-btn {
+  background: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #007bff;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pagar-btn:hover {
+  transform: translateY(-3px);
+  text-decoration: none;
+  color: #0056b3;
+}
+
+.pagar-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Detalhe do Pedido Template */
+.pedido-detalhe-container {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.pedido-detalhe-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pedido-detalhe-header h3 {
+  color: #6c757d;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.pedido-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.pedido-info-item {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.pedido-info-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  background: #e9ecef;
+}
+
+.pedido-info-label {
+  font-weight: 700;
+  color: #007bff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.pedido-info-value {
+  font-weight: 700;
+  color: #6c757d;
+  font-size: 1.3rem;
+}
+
+.pedido-produtos-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pedido-produtos-section h3 {
+  color: #6c757d;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.produtos-table {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.produtos-table thead {
+  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+}
+
+.produtos-table th {
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 1.2rem 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.produtos-table tbody tr {
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.produtos-table tbody tr:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.produtos-table td {
+  border: none;
+  padding: 1.2rem 1rem;
+  vertical-align: middle;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.produto-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.produto-nome {
+  font-weight: 700;
+  color: #6c757d;
+}
+
+.produto-variacao {
+  color: #6c757d;
+  font-style: italic;
+}
+
+.produto-quantidade {
+  font-weight: 700;
+  color: #007bff;
+}
+
+.produto-preco {
+  font-weight: 700;
+  color: #27ae60;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .pedidos-container,
+  .pagamento-container,
+  .pedido-detalhe-container {
+    padding: 1rem 0;
+  }
+
+  .pedidos-header,
+  .pagamento-header,
+  .pedido-detalhe-header,
+  .pedidos-table-container,
+  .pagamento-methods,
+  .pedido-produtos-section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pedidos-header h3,
+  .pagamento-header h3,
+  .pedido-detalhe-header h3 {
+    font-size: 1.8rem;
+  }
+
+  .pedido-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pedidos-table th,
+  .pedidos-table td,
+  .produtos-table th,
+  .produtos-table td {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .pedido-details-link {
+    font-size: 0.85rem;
+  }
+
+  .pagar-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  .payment-method-card {
+    padding: 1rem;
+  }
+
+  .payment-method-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+  }
+}
+
+@media (max-width: 576px) {
+  .pedidos-table,
+  .produtos-table {
+    font-size: 0.8rem;
+  }
+
+  .pedidos-table th,
+  .pedidos-table td,
+  .produtos-table th,
+  .produtos-table td {
+    padding: 0.6rem 0.3rem;
+  }
+
+  .pedido-info-item {
+    padding: 1rem;
+  }
+
+  .pedido-info-value {
+    font-size: 1.1rem;
+  }
+
+  .produto-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pedidos-container,
+.pagamento-container,
+.pedido-detalhe-container {
+  animation: fadeInUp 0.6s ease-out;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+}
+
+.pedidos-header,
+.pagamento-header,
+.pedido-detalhe-header,
+.pedidos-table-container,
+.pagamento-methods,
+.pedido-produtos-section {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.detalhe-pedido {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  h3 {
+    color: #6c757d;
+  }
+}

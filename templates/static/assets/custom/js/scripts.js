@@ -73,3 +73,108 @@
       });
   });
 })();
+
+// Payment Method Selection
+document.addEventListener("DOMContentLoaded", function () {
+  const paymentCards = document.querySelectorAll(".payment-method-card");
+
+  paymentCards.forEach((card) => {
+    card.addEventListener("click", function () {
+      // Remove selected class from all cards
+      paymentCards.forEach((c) => c.classList.remove("selected"));
+
+      // Add selected class to clicked card
+      this.classList.add("selected");
+
+      // You can add additional logic here, like updating a hidden input
+      // or enabling/disabling the pay button
+    });
+  });
+
+  // Add hover effects for better UX
+  paymentCards.forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      if (!this.classList.contains("selected")) {
+        this.style.transform = "translateY(-5px)";
+      }
+    });
+
+    card.addEventListener("mouseleave", function () {
+      if (!this.classList.contains("selected")) {
+        this.style.transform = "translateY(0)";
+      }
+    });
+  });
+});
+
+// Smooth scrolling for anchor links
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll('a[href^="#"]');
+
+  links.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+});
+
+// Add loading states to buttons
+document.addEventListener("DOMContentLoaded", function () {
+  const payButton = document.querySelector(".pagar-btn");
+
+  if (payButton) {
+    payButton.addEventListener("click", function (e) {
+      // Add loading state
+      this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando...';
+      this.disabled = true;
+
+      // Simulate processing (remove this in production)
+      setTimeout(() => {
+        this.innerHTML = "Pagar";
+        this.disabled = false;
+      }, 2000);
+    });
+  }
+});
+
+// Table row hover effects
+document.addEventListener("DOMContentLoaded", function () {
+  const tableRows = document.querySelectorAll(
+    ".pedidos-table tbody tr, .produtos-table tbody tr"
+  );
+
+  tableRows.forEach((row) => {
+    row.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-2px)";
+    });
+
+    row.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0)";
+    });
+  });
+});
+
+// Status badge animations
+document.addEventListener("DOMContentLoaded", function () {
+  const statusBadges = document.querySelectorAll(".pedido-status");
+
+  statusBadges.forEach((badge) => {
+    badge.addEventListener("mouseenter", function () {
+      this.style.transform = "scale(1.05)";
+    });
+
+    badge.addEventListener("mouseleave", function () {
+      this.style.transform = "scale(1)";
+    });
+  });
+});

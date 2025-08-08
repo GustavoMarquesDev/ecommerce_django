@@ -5,7 +5,76 @@
 {% block titulo %}Pedido N. {{pedido.pk}}{% endblock titulo %}
 
 {% block conteudo %}
+<div class="pedido-detalhe-container">
+    <div class="container">
+        <div class="pedido-detalhe-header">
+            <h3>{{pedido}}</h3>
+            
+            <div class="pedido-info-grid">
+                <div class="pedido-info-item">
+                    <div class="pedido-info-label">Número do pedido</div>
+                    <div class="pedido-info-value">{{pedido.pk}}</div>
+                </div>
+                <div class="pedido-info-item">
+                    <div class="pedido-info-label">Total a pagar</div>
+                    <div class="pedido-info-value">{{ pedido.total | formata_preco }}</div>
+                </div>
+                <div class="pedido-info-item">
+                    <div class="pedido-info-label">QTD. Itens</div>
+                    <div class="pedido-info-value">{{pedido.qtd_total}}</div>
+                </div>
+                <div class="pedido-info-item">
+                    <div class="pedido-info-label">Status</div>
+                    <div class="pedido-info-value">
+                        <span class="pedido-status {{pedido.get_status_display|lower}}">
+                            {{pedido.get_status_display}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-{% include "parciais/_pedido.html" %}
-
+        <div class="pedido-produtos-section">
+            <h3>Produtos</h3>
+            <div class="table-responsive">
+                <table class="table produtos-table">
+                    <thead>
+                        <tr>
+                            <th class="d-none d-lg-block">Imagem</th>
+                            <th>Produto</th>
+                            <th>Variação</th>
+                            <th>Quantidade</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in pedido.itempedido_set.all %}
+                        <tr>
+                            <td class="d-none d-lg-block">
+                                <img class="produto-img" src="{{item.imagem.url}}" alt="{{item.produto}}">
+                            </td>
+                            <td class="produto-nome">{{item.produto}}</td>
+                            <td class="produto-variacao">
+                                {% if item.variacao %}
+                                    {{item.variacao}}
+                                {% else %}
+                                    <span class="text-muted">-</span>
+                                {% endif %}
+                            </td>
+                            <td class="produto-quantidade">{{item.quantidade}}</td>
+                            <td class="produto-preco">
+                                {% if item.preco_promocional %}
+                                    {{item.preco_promocional | formata_preco}}
+                                {% else %}
+                                    {{item.preco | formata_preco}}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock conteudo %}
