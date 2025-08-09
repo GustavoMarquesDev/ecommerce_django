@@ -135,11 +135,6 @@ class Criar(BasePerfil):
         return redirect('produto:carrinho')
 
 
-class Atualizar(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('Atualizar')
-
-
 class Login(View):
     def post(self, *args, **kwargs):
         username = self.request.POST.get('username')

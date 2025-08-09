@@ -13,5 +13,6 @@ urlpatterns = [
     path('atualizarquantidade/', views.AtualizarQuantidade.as_view(),
          name='atualizarquantidade'),
     path('resumodacompra/', views.ResumoDaCompra.as_view(), name='resumodacompra'),
+    path('busca/', views.Busca.as_view(), name='busca'),
     path('<slug:slug>/', views.DetalheProduto.as_view(), name='detalhe'),
 ]

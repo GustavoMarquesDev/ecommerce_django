@@ -145,12 +145,11 @@ class DeletarPedido(DispatchLoginRequiredMixin, View):
         pedido = get_object_or_404(
             Pedido, pk=pedido_id, usuario=self.request.user)
 
-        # Deletar o pedido
         pedido.delete()
 
         messages.success(
             self.request,
-            f'Pedido #{pedido_id} foi deletado com sucesso!'
+            f'Pedido deletado com sucesso!'
         )
 
         return redirect('pedido:lista')

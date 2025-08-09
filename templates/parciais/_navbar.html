@@ -46,8 +46,14 @@
                 </li>
             {% endif %}
         </ul>
-        <form class="form-inline my-2 my-lg-0 ml-lg-4 custom-navbar-form">
-            <input class="form-control mr-sm-2 rounded-pill px-4 custom-navbar-search" type="search" placeholder="Buscar produtos..." aria-label="Search">
+        <form class="form-inline my-2 my-lg-0 ml-lg-4 custom-navbar-form" method="GET" action="{% url 'produto:busca' %}">
+            <input
+                name='termo'
+                value='{{request.GET.termo}}'
+                class="form-control mr-sm-2 rounded-pill px-4 custom-navbar-search"
+                type="search"
+                placeholder="Buscar produtos..."
+                aria-label="Busca">
             <button class="btn btn-primary rounded-pill px-3" type="submit">
                 <i class="fas fa-search"></i>
             </button>
