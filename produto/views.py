@@ -21,17 +21,23 @@ class ListaProdutos(ListView):
 
 
 class Busca(ListaProdutos):
+
+    def get(self, request, *args, **kwargs):
+        termo = request.GET.get('termo')
+        if termo == '' or termo is None:
+            return redirect('produto:lista')
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self, *args, **kwargs):
-        termo = self.request.GET.get('termo') or self.request.session['termo']
+        termo = self.request.GET.get(
+            'termo') or self.request.session.get('termo')
         qs = super().get_queryset(*args, **kwargs)
 
         if not termo:
             return qs
 
         self.request.session['termo'] = termo
-
         qs = qs.filter(Q(nome__icontains=termo))
-
         self.request.session.save()
         return qs
 
