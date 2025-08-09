@@ -3,11 +3,71 @@ from django.contrib.auth.models import User
 from . import models
 
 
+class CEPWidget(forms.TextInput):
+    def __init__(self, attrs=None):
+        default_attrs = {
+            'class': 'form-control',
+            'placeholder': '00000-000',
+            'maxlength': '9',
+            'oninput': 'mascaraCEP(this)',
+        }
+        if attrs:
+            default_attrs.update(attrs)
+        super().__init__(attrs=default_attrs)
+
+
+class CPFWidget(forms.TextInput):
+    def __init__(self, attrs=None):
+        default_attrs = {
+            'class': 'form-control',
+            'placeholder': '000.000.000-00',
+            'maxlength': '14',
+            'oninput': 'mascaraCPF(this)',
+        }
+        if attrs:
+            default_attrs.update(attrs)
+        super().__init__(attrs=default_attrs)
+
+
 class PerfilForm(forms.ModelForm):
+    cpf = forms.CharField(
+        max_length=14,
+        widget=CPFWidget(),
+        label='CPF',
+        help_text='Digite apenas números'
+    )
+
+    cep = forms.CharField(
+        max_length=9,
+        widget=CEPWidget(),
+        label='CEP',
+        help_text='Digite apenas números'
+    )
+
     class Meta:
         model = models.Perfil
         fields = '__all__'
         exclude = ('usuario',)
+
+    def clean_cpf(self):
+        cpf = self.cleaned_data.get('cpf')
+        if cpf:
+            # Remove caracteres não numéricos
+            cpf = ''.join(filter(str.isdigit, cpf))
+            if len(cpf) != 11:
+                raise forms.ValidationError('CPF deve ter 11 dígitos.')
+            return cpf
+        return cpf
+
+    def clean_cep(self):
+        cep = self.cleaned_data.get('cep')
+        if cep:
+            # Remove caracteres não numéricos
+            cep = ''.join(filter(str.isdigit, cep))
+            if len(cep) != 8:
+                raise forms.ValidationError('CEP deve ter 8 dígitos.')
+            return cep
+        return cep
 
 
 class UserForm(forms.ModelForm):
