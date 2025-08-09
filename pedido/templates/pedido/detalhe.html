@@ -24,6 +24,10 @@
                     <div class="pedido-info-value">{{pedido.qtd_total}}</div>
                 </div>
                 <div class="pedido-info-item">
+                    <div class="pedido-info-label">Data de criação</div>
+                    <div class="pedido-info-value">{{pedido.data_de_criacao}}</div>
+                </div>
+                <div class="pedido-info-item">
                     <div class="pedido-info-label">Status</div>
                     <div class="pedido-info-value">
                         <span class="pedido-status {{pedido.get_status_display|lower}}">

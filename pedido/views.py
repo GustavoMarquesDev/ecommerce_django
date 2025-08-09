@@ -1,6 +1,6 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
 from django.views import View
@@ -137,3 +137,20 @@ class Lista(DispatchLoginRequiredMixin, ListView):
     context_object_name = 'pedidos'
     paginate_by = 10
     ordering = ['-id']
+
+
+class DeletarPedido(DispatchLoginRequiredMixin, View):
+    def get(self, *args, **kwargs):
+        pedido_id = self.kwargs.get('pk')
+        pedido = get_object_or_404(
+            Pedido, pk=pedido_id, usuario=self.request.user)
+
+        # Deletar o pedido
+        pedido.delete()
+
+        messages.success(
+            self.request,
+            f'Pedido #{pedido_id} foi deletado com sucesso!'
+        )
+
+        return redirect('pedido:lista')

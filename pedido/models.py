@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -11,6 +12,7 @@ class Pedido(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     total = models.FloatField()
     qtd_total = models.PositiveIntegerField()
+    data_de_criacao = models.DateTimeField(default=timezone.now)
     status = models.CharField(
         default="C",
         max_length=1,

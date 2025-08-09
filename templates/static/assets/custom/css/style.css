@@ -1635,7 +1635,60 @@ body .container-fluid .card .card-header.text-white i {
   margin-bottom: 2rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+
+  h3 {
+    color: #6c757d;
+  }
 }
+
+.detalhe-pedido {
+  color: #6c757d;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Estilos para botões de ação */
+.pedido-details-link.text-danger {
+  color: #dc3545 !important;
+  transition: all 0.3s ease;
+}
+
+.pedido-details-link.text-danger:hover {
+  color: #c82333 !important;
+  transform: translateX(3px);
+}
+
+.pedido-details-link.text-danger:hover i {
+  transform: scale(1.1);
+}
+
+/* Espaçamento entre botões de ação */
+.pedido-details-link.me-3 {
+  margin-right: 1rem !important;
+}
+
+/* Hover effect para botões de ação */
+.pedido-details-link:hover {
+  text-decoration: none;
+}
+
+/* Responsividade para botões de ação */
+@media (max-width: 768px) {
+  .pedido-details-link {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .pedido-details-link.me-3 {
+    margin-right: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   ESTILOS PARA TABELA DE PRODUTOS
+   ========================================================================== */
 
 .pedido-detalhe-header h3 {
   color: #6c757d;
@@ -1767,7 +1820,7 @@ body .container-fluid .card .card-header.text-white i {
   color: #27ae60;
 }
 
-/* Responsividade */
+/* Responsividade para tabela de produtos */
 @media (max-width: 768px) {
   .pedidos-container,
   .pagamento-container,
@@ -1879,18 +1932,4 @@ body .container-fluid .card .card-header.text-white i {
 .pagamento-methods,
 .pedido-produtos-section {
   animation: fadeInUp 0.8s ease-out;
-}
-
-.detalhe-pedido {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
-  h3 {
-    color: #6c757d;
-  }
 }
