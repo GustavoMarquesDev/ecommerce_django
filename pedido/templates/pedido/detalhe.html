@@ -28,6 +28,14 @@
                     <div class="pedido-info-value">{{pedido.data_de_criacao}}</div>
                 </div>
                 <div class="pedido-info-item">
+                    <div class="pedido-info-label">Acompanhar envio</div>
+                    <div class="pedido-info-value">
+                        <a href="#" class="pedido-details-link me-3">
+                            Ver <i class="fa-solid fa-paper-plane"></i>          
+                        </a>
+                    </div>
+                </div>
+                <div class="pedido-info-item">
                     <div class="pedido-info-label">Status</div>
                     <div class="pedido-info-value">
                         <span class="pedido-status {{pedido.get_status_display|lower}}">
