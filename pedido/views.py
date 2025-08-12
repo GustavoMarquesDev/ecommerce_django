@@ -1,6 +1,6 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404, render
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
 from django.views import View
@@ -153,3 +153,14 @@ class DeletarPedido(DispatchLoginRequiredMixin, View):
         )
 
         return redirect('pedido:lista')
+
+
+class AcompanharEnvio(DispatchLoginRequiredMixin, View):
+    def get(self, *args, **kwargs):
+        pedido_id = self.kwargs.get('pk')
+        pedido = get_object_or_404(
+            Pedido, pk=pedido_id, usuario=self.request.user)
+
+        return render(self.request, 'pedido/envio.html', {
+            'pedido': pedido
+        })

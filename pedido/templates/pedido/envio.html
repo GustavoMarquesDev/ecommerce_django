@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block titulo %}Envios de {{pedido.usuario.first_name}}{% endblock titulo %}
+
+{% block conteudo %}
+    <div class="pedido-envio-container">
+        <div class="container">
+            <div class="pedido-envio-header">
+                <h3>Envios de {{pedido.usuario.first_name}}</h3>
+                <p>Abaixo estão os envios realizados para este pedido.</p>
+            </div>
+
+            <div class="pedido-envio-table-container">
+                <div class="table-responsive">
+                    <table class="table pedido-envio-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Envio</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <th scope="col">-</th>
+                            <th scope="col">-</th>
+                            <th scope="col">-</th>
+                            <th scope="col">-</th>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock conteudo %}
+
