@@ -12,7 +12,8 @@ class Perfil(models.Model):
         verbose_name = "Perfil"
         verbose_name_plural = "Perfis"
 
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(
+        User, on_delete=models.CASCADE, verbose_name="Usuário")
     idade = models.PositiveIntegerField()
     data_de_nascimento = models.DateField()
     cpf = models.CharField(max_length=11)
