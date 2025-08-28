@@ -30,6 +30,11 @@ class CPFWidget(forms.TextInput):
 
 
 class PerfilForm(forms.ModelForm):
+    class Meta:
+        model = models.Perfil
+        fields = '__all__'
+        exclude = ('usuario',)
+
     cpf = forms.CharField(
         max_length=14,
         widget=CPFWidget(),
@@ -43,11 +48,6 @@ class PerfilForm(forms.ModelForm):
         label='CEP',
         help_text='Digite apenas números'
     )
-
-    class Meta:
-        model = models.Perfil
-        fields = '__all__'
-        exclude = ('usuario',)
 
     def clean_cpf(self):
         cpf = self.cleaned_data.get('cpf')
@@ -71,18 +71,6 @@ class PerfilForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField(
-        required=False,
-        widget=forms.PasswordInput(),
-        label='Senha',
-    )
-
-    password2 = forms.CharField(
-        required=False,
-        widget=forms.PasswordInput(),
-        label='Confirmação senha'
-    )
-
     def __init__(self, usuario=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -97,6 +85,18 @@ class UserForm(forms.ModelForm):
                   'password2',
                   'email'
                   )
+
+    password = forms.CharField(
+        required=False,
+        widget=forms.PasswordInput(),
+        label='Senha',
+    )
+
+    password2 = forms.CharField(
+        required=False,
+        widget=forms.PasswordInput(),
+        label='Confirmação senha'
+    )
 
     def clean(self):
         data = self.data

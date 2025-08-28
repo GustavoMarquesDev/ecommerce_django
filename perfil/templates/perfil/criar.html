@@ -15,7 +15,7 @@
         <div class="auth-content">
             <div class="row">
                 {% if not request.user.is_authenticated %}
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
                         <div class="form-section">
                             <h4>🔐 Login</h4>
                             <p>Se você já possui uma conta, faça login com suas credenciais.</p>
@@ -51,7 +51,7 @@
                     </div>
                 {% endif %}
 
-                <div class="{% if not request.user.is_authenticated %}col-lg-6{% else %}col-12{% endif %}">
+                <div class="{% if not request.user.is_authenticated %}col-lg-7{% else %}col-12{% endif %}">
                     {% if not request.user.is_authenticated %}
                         <div class="divider d-lg-none"></div>
                     {% endif %}

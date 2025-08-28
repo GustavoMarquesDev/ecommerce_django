@@ -130,8 +130,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+
+# É a URL base que o Django vai usar para montar os links para os arquivos estáticos nos templates
+# Geralmmente nunca se altera
 STATIC_URL = "static/"
+
+#  Quando rodo o python manage.py collectstatic os arquivos vão para cá,
+#  Uma pasta chamada static na raiz do projeto sera criada se nao houver
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+# Diretório adicional para arquivos estáticos
 STATICFILES_DIRS = [
     os.path.join("templates/static"),
 ]

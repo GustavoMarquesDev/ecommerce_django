@@ -52,7 +52,7 @@ class DetalheProduto(DetailView):
 class AdicionarAoCarrinho(View):
     def get(self, *arg, **kwargs):
 
-        # para voltar para a página anterior, ou a home aqui no caso
+        # para voltar para a página anterior
         http_referer = self.request.META.get(
             'HTTP_REFERER', reverse('produto:lista')
         )
