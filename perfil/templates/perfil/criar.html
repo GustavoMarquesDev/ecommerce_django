@@ -58,8 +58,15 @@
                     
                     <div class="form-section">
                         {% block titulocadastro %}
-                            <h4>📝 {% if not request.user.is_authenticated %}Cadastro{% else %}Atualizar Perfil{% endif %}</h4>
-                            <p>{% if not request.user.is_authenticated %}Não possui conta? Preencha o formulário abaixo para criar uma.{% else %}Mantenha seus dados sempre atualizados.{% endif %}</p>
+
+                                {% if not request.user.is_authenticated %}
+                                    <h4>📝 Cadastro</h4>
+                                    <p>Não possui conta? Preencha o formulário abaixo para criar uma.</p>
+                                {% else %}
+                                    <h4>Atualizar Perfil</h4>
+                                    <p>Mantenha seus dados sempre atualizados.</p>
+                                {% endif %}
+
                         {% endblock titulocadastro %}
                             
                         <form method="POST" action="">
