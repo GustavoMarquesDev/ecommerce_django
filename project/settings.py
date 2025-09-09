@@ -141,7 +141,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Diretório adicional para arquivos estáticos
 STATICFILES_DIRS = [
-    os.path.join("templates/static"),
+    os.path.join(BASE_DIR, "templates/static"),
 ]
 
 MEDIA_URL = "/media/"
