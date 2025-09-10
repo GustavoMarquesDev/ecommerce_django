@@ -677,6 +677,17 @@ body .container-fluid .card .card-header.text-white i {
   border-top-right-radius: 1.5rem;
   box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.08);
   font-size: 1rem;
+
+  #footer-link {
+    color: #e9ecef;
+    text-decoration: none;
+
+    &:hover {
+      color: #ffc107;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+  }
 }
 
 .footer-modern .footer-icon-link {
