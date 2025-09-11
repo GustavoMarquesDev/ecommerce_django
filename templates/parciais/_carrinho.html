@@ -17,8 +17,10 @@
             <tr class="align-middle {% if produto_alterado and linha.produto_id == produto_alterado.pk %}table-warning{% endif %}">
                 <td class="d-none d-lg-block">
                     <div class="d-flex justify-content-center">
-                        <img class="cart-img rounded shadow-sm" src="{% get_media_prefix %}{{ linha.imagem }}" 
-                            alt="{{ linha.produto_nome }}">
+                        <a href="{% url 'produto:detalhe' linha.slug %}">
+                            <img class="cart-img rounded shadow-sm" src="{% get_media_prefix %}{{ linha.imagem }}" 
+                                alt="{{ linha.produto_nome }}">
+                        </a>
                     </div>
                 </td>
                 <td>
