@@ -1,5 +1,3 @@
-from typing import Any
-from django.db.models.query import QuerySet
 from django.shortcuts import redirect, get_object_or_404, render
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
@@ -7,7 +5,7 @@ from django.views import View
 from django.http import HttpResponse
 from django.contrib import messages
 
-from produto.models import Variacao
+from produto.models import Variacao, Produto
 from .models import Pedido, ItemPedido
 import utils
 
@@ -79,13 +77,26 @@ class SalvarPedido(View):
                     'Favor verifique quais itens estão faltando.'
 
             if erro_msg_estoque:
+
+                # seleciona o produto que a quantidade foi diminuida
+                produto_alterado = Produto.objects.get(
+                    id=carrinho[vid]['produto_id'])
                 messages.error(
                     self.request,
                     erro_msg_estoque
                 )
                 self.request.session.save()
-
-                return redirect('produto:carrinho')
+                print('Carrinho na sessão:',
+                      self.request.session.get('carrinho'))
+                print('Carrinho no contexto:', carrinho)
+                return render(
+                    self.request,
+                    'produto/carrinho.html',
+                    {
+                        'carrinho': carrinho,
+                        'produto_alterado': produto_alterado,
+                    }
+                )
 
         qtd_total_carrinho = utils.cart_total_qtd(carrinho)
         valor_total_carrinho = utils.cart_total_price(carrinho)

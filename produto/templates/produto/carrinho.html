@@ -3,6 +3,7 @@
 
 {% block titulo %}Carrinho de Compras{% endblock titulo %}
 
+
 {% block conteudo %}
 <div class="container-fluid py-4">
     {% if carrinho %}
@@ -27,7 +28,6 @@
                             <i class="fas fa-shopping-bag fa-2x mr-3"></i>
                             <div>
                                 <h3 class="mb-0 font-weight-bold">Produtos Selecionados</h3>
-                                <small class="opacity-75">{{ carrinho|length }} item(s) no carrinho</small>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-4 mb-4">
                 <div class="card border-0 shadow-lg rounded-3">
                     <div class="card-header cart-header-success py-3 rounded-top">
