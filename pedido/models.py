@@ -1,6 +1,7 @@
 from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
+from produto.models import Produto
 
 
 class Pedido(models.Model):
@@ -31,6 +32,12 @@ class Pedido(models.Model):
 
 
 class ItemPedido(models.Model):
+    @property
+    def produto_slug(self):
+        try:
+            return Produto.objects.get(id=self.produto_id).slug
+        except Produto.DoesNotExist:
+            return ''
 
     class Meta:
         verbose_name = "Item do pedido"

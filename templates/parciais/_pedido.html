@@ -66,7 +66,9 @@
                             {% for item in pedido.itempedido_set.all %}
                             <tr>
                                 <td class="d-none d-lg-block">
+                                    <a href="{% url 'produto:detalhe' item.produto_slug %}">
                                     <img class="produto-img" src="{{item.imagem.url}}" alt="{{item.produto}}">
+                                    </a>
                                 </td>
                                 <td class="produto-nome">{{item.produto}}</td>
                                 <td class="produto-variacao">

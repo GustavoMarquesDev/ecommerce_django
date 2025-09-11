@@ -95,7 +95,7 @@ class AdicionarAoCarrinho(View):
             quantidade_carrinho += 1
 
             if variacao.estoque < quantidade_carrinho:
-                messages.error(
+                messages.warning(
                     self.request,
                     f'Infelizmente nosso estoque do produto "{produto_nome}" '
                     f'acabou. Adicionamos {variacao.estoque} itens do produto '
