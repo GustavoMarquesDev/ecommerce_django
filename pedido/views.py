@@ -32,7 +32,6 @@ class Pagar(DispatchLoginRequiredMixin, DetailView):
 
 
 class SalvarPedido(View):
-    template_name = 'pedido/pagar.html'
 
     def get(self, *arg, **kwargs):
         if not self.request.user.is_authenticated:
@@ -124,6 +123,11 @@ class SalvarPedido(View):
         ])
 
         del self.request.session['carrinho']
+
+        messages.success(
+            self.request,
+            'Pedido criado com sucesso!'
+        )
 
         return redirect(
             reverse(
