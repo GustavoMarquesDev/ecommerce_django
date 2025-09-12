@@ -1944,3 +1944,8 @@ body .container-fluid .card .card-header.text-white i {
 .pedido-produtos-section {
   animation: fadeInUp 0.8s ease-out;
 }
+
+p#estoque-variacao {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
