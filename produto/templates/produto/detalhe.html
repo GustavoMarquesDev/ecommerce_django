@@ -20,6 +20,7 @@
     <div class="col-lg">
         <div class="mt-4 mt-lg-0">
             <h1 class="h2">{{ produto.nome }}</h1>
+            <p>{{variacao.estoque}}</p>
             <p class="lead">{{ produto.descricao_curta }}</p>
             <p class="lead">
                 <span id="variation-preco-promocional" class="product-price" style="display:none"></span>
@@ -30,40 +31,21 @@
                 <div class="form-group">
                     <select id="select-variacoes" name="vid" class="form-control form-control-lg">
                         {% for variacao in produto.variacao_set.all %}
-                            {% if variacao.preco_promocional > 0 %}
-                                <option
-                                data-preco="{{variacao.preco | formata_preco}}"
-                                data-preco-promocional="{{variacao.preco_promocional | formata_preco }}"
-                                value="{{variacao.id}}">
-                                {% if variacao.nome %}
-                                    {{variacao.nome}}
-                                {% else %}
-                                    {{variacao}}
-                                {% endif %}
-                            </option>
-                            {% else %}
                             <option
-                                data-preco="{{variacao.preco | formata_preco}}"
-                                data-preco-promocional=""
-                                value="{{variacao.id}}">
+                                value="{{ variacao.id }}"
+                                data-estoque="{{ variacao.estoque }}"
+                                data-preco="{{ variacao.preco|formata_preco }}"
+                                data-preco-promocional="{{ variacao.preco_promocional|formata_preco }}">
                                 {% if variacao.nome %}
-                                    {{variacao.nome}}
+                                    {{ variacao.nome }}
                                 {% else %}
-                                    {{variacao}}
+                                    {{ variacao }}
                                 {% endif %}
                             </option>
-                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>
-
-                <div class="text-left">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        Adicionar ao carrinho
-                    </button>
-                </div>
-            </form>
+                <p id="estoque-variacao" class="mt-2"></p>
         </div>
     </div>
 </div>
@@ -75,44 +57,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    // Configurar estado inicial dos preços
-    document.addEventListener('DOMContentLoaded', function() {
-        const selectVariacao = document.getElementById('select-variacoes');
-        const variationPreco = document.getElementById('variation-preco');
-        const variationPrecoPromocional = document.getElementById('variation-preco-promocional');
-        const variationPrecoAntigo = document.getElementById('variation-preco-antigo');
-        
-        if (selectVariacao && variationPreco) {
-            const selectedOption = selectVariacao.options[selectVariacao.selectedIndex];
-            const precoPromocional = selectedOption.getAttribute('data-preco-promocional');
-            const precoNormal = selectedOption.getAttribute('data-preco');
-            
-            if (precoPromocional && precoPromocional !== '') {
-                // Se tem preço promocional, mostra o preço promocional e o preço original riscado
-                if (variationPrecoPromocional) {
-                    variationPrecoPromocional.style.display = 'inline';
-                    variationPreco.style.textDecoration = 'line-through';
-                    // Removido: cor definida via CSS
-                    // Removido: cor definida via CSS
-                }
-                if (variationPrecoAntigo) {
-                    variationPrecoAntigo.style.display = 'inline';
-                    variationPrecoAntigo.textContent = precoNormal;
-                }
-            } else {
-                // Se não tem preço promocional, mostra apenas o preço normal
-                if (variationPrecoPromocional) {
-                    variationPrecoPromocional.style.display = 'none';
-                    variationPreco.style.textDecoration = 'none';
-                    // Removido: cor definida via CSS
-                }
-                if (variationPrecoAntigo) {
-                    variationPrecoAntigo.style.display = 'none';
-                }
-            }
-        }
-    });
-</script>
 {% endblock %}

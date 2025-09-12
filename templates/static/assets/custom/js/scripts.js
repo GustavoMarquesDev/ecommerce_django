@@ -1,4 +1,25 @@
 (function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    const select = document.getElementById("select-variacoes");
+    const estoqueInfo = document.getElementById("estoque-variacao");
+
+    if (select && estoqueInfo) {
+      function updateEstoque() {
+        const selected = select.options[select.selectedIndex];
+        const estoque = parseInt(selected.getAttribute("data-estoque"), 10);
+        if (estoque < 5) {
+          estoqueInfo.innerHTML = `<span style="color: #d9534f; font-weight: bold;">Últimas ${estoque} unidades!</span>`;
+        } else {
+          estoqueInfo.textContent = "Quantidade em estoque: " + estoque;
+        }
+      }
+
+      select.addEventListener("change", updateEstoque);
+      updateEstoque(); // Atualiza ao carregar a página
+    }
+  });
+})();
+(function () {
   select_variacao = document.getElementById("select-variacoes");
   variation_preco = document.getElementById("variation-preco");
   variation_preco_promocional = document.getElementById(
