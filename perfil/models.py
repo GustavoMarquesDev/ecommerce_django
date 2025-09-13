@@ -81,3 +81,9 @@ class Perfil(models.Model):
 
         if error_messages:
             raise ValidationError(error_messages)
+
+
+class Carrinho(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    # Armazena os itens do carrinho como dict
+    dados = models.JSONField(default=dict)

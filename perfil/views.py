@@ -150,6 +150,15 @@ class Login(View):
         usuario = authenticate(
             self.request, username=username, password=password)
 
+        if usuario:
+            login(self.request, user=usuario)
+
+            try:
+                carrinho = models.Carrinho.objects.get(usuario=usuario)
+                self.request.session['carrinho'] = carrinho.dados
+            except models.Carrinho.DoesNotExist:
+                self.request.session['carrinho'] = {}
+
         if not usuario:
             messages.error(
                 self.request,
@@ -168,11 +177,19 @@ class Login(View):
 
 class Logout(View):
     def get(self, *args, **kwargs):
-        carrinho = copy.deepcopy(self.request.session.get('carrinho'))
+
+        if self.request.user.is_authenticated:
+            carrinho_dados = copy.deepcopy(
+                self.request.session.get('carrinho', {}))
+            models.Carrinho.objects.update_or_create(
+                usuario=self.request.user,
+                defaults={'dados': carrinho_dados}
+            )
 
         logout(self.request)
 
-        self.request.session['carrinho'] = carrinho
+        if 'carrinho' in self.request.session:
+            del self.request.session['carrinho']
         self.request.session.save()
 
         return redirect('produto:lista')

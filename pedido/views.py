@@ -25,7 +25,7 @@ class Pagar(DispatchLoginRequiredMixin, DetailView):
     context_object_name = 'pedido'
 
     def get_queryset(self, *args, **kwargs):
-        qs = super().get_queryset(*args, **kwargs)  # type: ignore
+        qs = super().get_queryset(*args, **kwargs)
         qs = qs.filter(usuario=self.request.user)
 
         return qs
@@ -152,7 +152,7 @@ class Lista(DispatchLoginRequiredMixin, ListView):
     ordering = ['-id']
 
     def get_queryset(self, *args, **kwargs):
-        qs = super().get_queryset(*args, **kwargs)  # type: ignore
+        qs = super().get_queryset(*args, **kwargs)
         qs = qs.filter(usuario=self.request.user)
 
         return qs
