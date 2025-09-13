@@ -17,18 +17,18 @@ class DispatchLoginRequiredMixin(View):
 
         return super().dispatch(*args, **kwargs)
 
-    def get_queryset(self, *args, **kwargs):
-        qs = super().get_queryset(*args, **kwargs)  # type: ignore
-        qs = qs.filter(usuario=self.request.user)
-
-        return super().get_queryset()  # type: ignore
-
 
 class Pagar(DispatchLoginRequiredMixin, DetailView):
     template_name = 'pedido/pagar.html'
     model = Pedido
     pk_url_kwarg = 'pk'
     context_object_name = 'pedido'
+
+    def get_queryset(self, *args, **kwargs):
+        qs = super().get_queryset(*args, **kwargs)  # type: ignore
+        qs = qs.filter(usuario=self.request.user)
+
+        return qs
 
 
 class SalvarPedido(View):
@@ -85,9 +85,7 @@ class SalvarPedido(View):
                     erro_msg_estoque
                 )
                 self.request.session.save()
-                print('Carrinho na sessão:',
-                      self.request.session.get('carrinho'))
-                print('Carrinho no contexto:', carrinho)
+
                 return render(
                     self.request,
                     'produto/carrinho.html',
@@ -152,6 +150,12 @@ class Lista(DispatchLoginRequiredMixin, ListView):
     context_object_name = 'pedidos'
     paginate_by = 10
     ordering = ['-id']
+
+    def get_queryset(self, *args, **kwargs):
+        qs = super().get_queryset(*args, **kwargs)  # type: ignore
+        qs = qs.filter(usuario=self.request.user)
+
+        return qs
 
 
 class DeletarPedido(DispatchLoginRequiredMixin, View):
