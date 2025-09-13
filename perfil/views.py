@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 import copy
 
+from django.urls import reverse
+
 from . import models
 from . import forms
 
@@ -131,8 +133,10 @@ class Criar(BasePerfil):
             self.request,
             'Você fez login e pode concluir sua compra.'
         )
-
-        return redirect('produto:carrinho')
+        http_referer = self.request.META.get(
+            'HTTP_REFERER', reverse('produto:detalhe', kwargs={'slug': ''})
+        )
+        return redirect(http_referer)
 
 
 class Login(View):

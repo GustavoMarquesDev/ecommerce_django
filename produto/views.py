@@ -52,6 +52,9 @@ class DetalheProduto(DetailView):
 class AdicionarAoCarrinho(View):
     def get(self, *arg, **kwargs):
 
+        if not self.request.user.is_authenticated:
+            return redirect('perfil:criar')
+
         # para voltar para a página anterior
         http_referer = self.request.META.get(
             'HTTP_REFERER', reverse('produto:lista')
@@ -133,7 +136,7 @@ class AdicionarAoCarrinho(View):
                 defaults={'dados': self.request.session['carrinho']}
             )
 
-        if not self.request.user.is_authenticated:
+        else:
             messages.error(
                 self.request,
                 'Você precisa estar logado para realizar esta ação.'
