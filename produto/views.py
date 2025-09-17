@@ -28,6 +28,8 @@ class Busca(ListaProdutos):
             return redirect('produto:lista')
         return super().get(request, *args, **kwargs)
 
+    # A session termo é usada para manter o termo de busca para não mexer na paginação
+
     def get_queryset(self, *args, **kwargs):
         termo = self.request.GET.get(
             'termo') or self.request.session.get('termo')
@@ -129,20 +131,6 @@ class AdicionarAoCarrinho(View):
 
         self.request.session.save()
 
-        if self.request.user.is_authenticated:
-            from perfil.models import Carrinho
-            Carrinho.objects.update_or_create(
-                usuario=self.request.user,
-                defaults={'dados': self.request.session['carrinho']}
-            )
-
-        else:
-            messages.error(
-                self.request,
-                'Você precisa estar logado para realizar esta ação.'
-            )
-            return redirect('perfil:criar')
-
         messages.success(
             self.request,
             f'Produto {produto_nome} {variacao_nome} adicionado ao carrinho'
@@ -179,13 +167,6 @@ class RemoverDoCarrinho(View):
 
         del self.request.session['carrinho'][variacao_id]
         self.request.session.save()
-
-        if self.request.user.is_authenticated:
-            from perfil.models import Carrinho
-            Carrinho.objects.update_or_create(
-                usuario=self.request.user,
-                defaults={'dados': self.request.session['carrinho']}
-            )
         return redirect(http_referer)
 
 
@@ -239,13 +220,6 @@ class AtualizarQuantidade(View):
                     f'Produto {item["produto_nome"]} removido do carrinho'
                 )
                 self.request.session.save()
-
-                if self.request.user.is_authenticated:
-                    from perfil.models import Carrinho
-                    Carrinho.objects.update_or_create(
-                        usuario=self.request.user,
-                        defaults={'dados': self.request.session['carrinho']}
-                    )
                 return redirect(http_referer)
         else:
             return redirect(http_referer)
@@ -256,12 +230,6 @@ class AtualizarQuantidade(View):
         item['preco_quantitativo_promocional'] = item['preco_unitario_promocional'] * nova_quantidade
 
         self.request.session.save()
-        if self.request.user.is_authenticated:
-            from perfil.models import Carrinho
-            Carrinho.objects.update_or_create(
-                usuario=self.request.user,
-                defaults={'dados': self.request.session['carrinho']}
-            )
 
         return redirect(http_referer)
 

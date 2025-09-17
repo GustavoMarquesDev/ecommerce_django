@@ -78,13 +78,15 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('first_name',
-                  'last_name',
-                  'username',
-                  'password',
-                  'password2',
-                  'email'
-                  )
+        fields = (
+            'email',
+            'first_name',
+            'last_name',
+            'username',
+            'password',
+            'password2',
+
+        )
 
     password = forms.CharField(
         required=False,
